@@ -17,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    window?.makeKeyAndVisible()
+    var viewController = ViewController()
+    window?.rootViewController = viewController
+    viewController.map = Map(
+      size: CGSizeMake(6, 6),
+      blockGrids: [
+        CGPointMake(0, 2),
+        CGPointMake(4, 5),
+        CGPointMake(1, 3)
+      ])
+    
     return true
   }
 
