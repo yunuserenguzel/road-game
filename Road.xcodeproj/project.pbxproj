@@ -10,7 +10,6 @@
 		AEAB52CE1B90E2E70088F2CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52CD1B90E2E70088F2CE /* AppDelegate.swift */; };
 		AEAB52D11B90E2E70088F2CE /* Road.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52CF1B90E2E70088F2CE /* Road.xcdatamodeld */; };
 		AEAB52D31B90E2E70088F2CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52D21B90E2E70088F2CE /* ViewController.swift */; };
-		AEAB52D61B90E2E70088F2CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEAB52D41B90E2E70088F2CE /* Main.storyboard */; };
 		AEAB52D81B90E2E70088F2CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEAB52D71B90E2E70088F2CE /* Images.xcassets */; };
 		AEAB52DB1B90E2E70088F2CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEAB52D91B90E2E70088F2CE /* LaunchScreen.xib */; };
 		AEAB52E71B90E2E70088F2CE /* RoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52E61B90E2E70088F2CE /* RoadTests.swift */; };
@@ -32,7 +31,6 @@
 		AEAB52CD1B90E2E70088F2CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEAB52D01B90E2E70088F2CE /* Road.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Road.xcdatamodel; sourceTree = "<group>"; };
 		AEAB52D21B90E2E70088F2CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AEAB52D51B90E2E70088F2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEAB52D71B90E2E70088F2CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AEAB52DA1B90E2E70088F2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AEAB52E01B90E2E70088F2CE /* RoadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +79,6 @@
 			children = (
 				AEAB52CD1B90E2E70088F2CE /* AppDelegate.swift */,
 				AEAB52D21B90E2E70088F2CE /* ViewController.swift */,
-				AEAB52D41B90E2E70088F2CE /* Main.storyboard */,
 				AEAB52D71B90E2E70088F2CE /* Images.xcassets */,
 				AEAB52D91B90E2E70088F2CE /* LaunchScreen.xib */,
 				AEAB52CF1B90E2E70088F2CE /* Road.xcdatamodeld */,
@@ -195,7 +192,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEAB52D61B90E2E70088F2CE /* Main.storyboard in Resources */,
 				AEAB52DB1B90E2E70088F2CE /* LaunchScreen.xib in Resources */,
 				AEAB52D81B90E2E70088F2CE /* Images.xcassets in Resources */,
 			);
@@ -240,14 +236,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AEAB52D41B90E2E70088F2CE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AEAB52D51B90E2E70088F2CE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AEAB52D91B90E2E70088F2CE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Road/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,6 +344,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Road/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
