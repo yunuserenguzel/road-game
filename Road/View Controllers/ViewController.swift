@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-  
+  let scrollView = UIScrollView()
   var cellArea:CellArea!
   
   var map:Map! {
@@ -21,27 +21,38 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.whiteColor()
+    
+    scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
+//    scrollView.backgroundColor = UIColor.redColor()
+    view.addSubview(scrollView)
+    
+    var views = [
+      "scroll":scrollView
+    ]
+    
+    view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[scroll]-0-|", options: nil, metrics: nil, views: views))
+    view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[scroll]-0-|", options: nil, metrics: nil, views: views))
+    
   }
   
   func generateCellArea() {
     cellArea = CellArea(map: map)
-    
     cellArea.setTranslatesAutoresizingMaskIntoConstraints(false)
-    cellArea.backgroundColor = UIColor.lightGrayColor()
-    view.addSubview(cellArea)
+    scrollView.addSubview(cellArea)
     
     var views = [
-      "cellArea":cellArea
+      "cellArea":cellArea,
+      "scroll":scrollView
     ]
     
-    view.addConstraints([
+    scrollView.addConstraints([
       NSLayoutConstraint(item: cellArea, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: cellArea, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
       ])
     
-    view.addConstraints(NSLayoutConstraint
-      .constraintsWithVisualFormat("H:|-20-[cellArea]-20-|", options: nil, metrics: nil, views: views))
+    scrollView.addConstraints(NSLayoutConstraint
+      .constraintsWithVisualFormat("H:|-0-[cellArea(==scroll)]-0-|", options: nil, metrics: nil, views: views))
     
-    view.addConstraints(NSLayoutConstraint
+    scrollView.addConstraints(NSLayoutConstraint
       .constraintsWithVisualFormat("V:|-20-[cellArea]", options: nil, metrics: nil, views: views))
   }
   
