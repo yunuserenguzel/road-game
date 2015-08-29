@@ -9,8 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-  let scrollView = UIScrollView()
+  
   var cellArea:CellArea!
+  var resetButton = UIButton()
   
   var map:Map! {
     didSet {
@@ -22,37 +23,47 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = UIColor.whiteColor()
     
-    scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
-//    scrollView.backgroundColor = UIColor.redColor()
-    view.addSubview(scrollView)
+    resetButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+    resetButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+    resetButton.setTitle("Reset", forState: UIControlState.Normal)
+    resetButton.backgroundColor = UIColor.lightGrayColor()
+    resetButton.addTarget(self, action: "reset", forControlEvents: UIControlEvents.TouchUpInside)
+    view.addSubview(resetButton)
     
     var views = [
-      "scroll":scrollView
+      "reset":resetButton
     ]
     
-    view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[scroll]-0-|", options: nil, metrics: nil, views: views))
-    view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[scroll]-0-|", options: nil, metrics: nil, views: views))
+    view.addConstraints(NSLayoutConstraint
+      .constraintsWithVisualFormat("H:|[reset]|", options: nil, metrics: nil, views: views))
+    view.addConstraints(NSLayoutConstraint
+      .constraintsWithVisualFormat("V:[reset(44)]-0-|", options: nil, metrics: nil, views: views))
     
+  }
+  
+  func reset() {
+    cellArea.removeFromSuperview()
+    cellArea = nil
+    generateCellArea()
   }
   
   func generateCellArea() {
     cellArea = CellArea(map: map)
     cellArea.setTranslatesAutoresizingMaskIntoConstraints(false)
-    scrollView.addSubview(cellArea)
+    view.addSubview(cellArea)
     
     var views = [
-      "cellArea":cellArea,
-      "scroll":scrollView
+      "cellArea":cellArea
     ]
     
-    scrollView.addConstraints([
+    view.addConstraints([
       NSLayoutConstraint(item: cellArea, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: cellArea, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
       ])
     
-    scrollView.addConstraints(NSLayoutConstraint
-      .constraintsWithVisualFormat("H:|-0-[cellArea(==scroll)]-0-|", options: nil, metrics: nil, views: views))
+    view.addConstraints(NSLayoutConstraint
+      .constraintsWithVisualFormat("H:|-20-[cellArea]-20-|", options: nil, metrics: nil, views: views))
     
-    scrollView.addConstraints(NSLayoutConstraint
+    view.addConstraints(NSLayoutConstraint
       .constraintsWithVisualFormat("V:|-20-[cellArea]", options: nil, metrics: nil, views: views))
   }
   
