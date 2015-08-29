@@ -109,9 +109,10 @@ class CellArea: UIView {
       if cell.cellType == CellType.active {
         hightlightCell(cell)
         if lastHitCell != nil {
-          lastHitCell.connectWith(cell)
+          if lastHitCell.connectWith(cell) {
+            lastHitCell = cell
+          }
         }
-        lastHitCell = cell
       } else {
         hightlightCell(nil)
       }

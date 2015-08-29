@@ -14,6 +14,9 @@ enum CellType {
 enum CellState {
   case hightlighted, normal
 }
+enum Direction {
+  case North,South,West,East
+}
 class CellView: UIView {
   struct Connection {
     var north:CellView?
@@ -66,54 +69,76 @@ class CellView: UIView {
       (connection.north != nil ? 1 : 0) +
       (connection.south != nil ? 1 : 0)
   }
-  
-  func connectWith(cell:CellView) {
-    if connectionCount() > 1 {
-      return
-    }
-    if cell == self {
-      return
-    }
-    if cell.cellType == CellType.passive {
-      return
-    }
-    
-    if point.x == cell.point.x {
-      if point.y == cell.point.y + 1  { // north
+  func connectWith(cell:CellView) -> Bool {
+    var direction = tryConnectWith(cell)
+    if let direction = tryConnectWith(cell) as Direction! {
+      switch direction {
+      case .North:
         connection.north = cell
-        println("north connection")
-        configureViews()
         if cell.connection.south == nil {
           cell.connectWith(self)
         }
-      }
-      else if point.y + 1 == cell.point.y { // south
+      case .South:
         connection.south = cell
-        configureViews()
-        println("south connection")
         if cell.connection.north == nil {
           cell.connectWith(self)
         }
-      }
-    }
-    else if point.y == cell.point.y {
-      if point.x == cell.point.x + 1 { // west
+      case .West:
         connection.west = cell
-        configureViews()
-        println("west connection")
         if cell.connection.east == nil {
           cell.connectWith(self)
         }
-      }
-      else if point.x + 1 == cell.point.x { // east
+      case .East:
         connection.east = cell
-        configureViews()
-        println("east connection")
         if cell.connection.west == nil {
           cell.connectWith(self)
         }
       }
+      configureViews()
+      return true
     }
+    return false
+  }
+  func tryConnectWith(cell:CellView) -> Direction? {
+    if connectionCount() > 1 {
+      return nil
+    }
+    if cell == self {
+      return nil
+    }
+    if cell.cellType == CellType.passive {
+      return nil
+    }
+    
+    if point.x == cell.point.x {
+      if point.y == cell.point.y + 1  { // north
+        if cell.connectionCount() > 1 && cell.connection.south == nil {
+          return nil
+        }
+        return Direction.North
+      }
+      else if point.y + 1 == cell.point.y { // south
+        if cell.connectionCount() > 1 && cell.connection.north == nil {
+          return nil
+        }
+        return Direction.South
+      }
+    }
+    else if point.y == cell.point.y {
+      if point.x == cell.point.x + 1 { // west
+        if cell.connectionCount() > 1 && cell.connection.east == nil {
+          return nil
+        }
+        return Direction.West
+      }
+      else if point.x + 1 == cell.point.x { // east
+        if cell.connectionCount() > 1 && cell.connection.west == nil {
+          return nil
+        }
+        return Direction.East
+      }
+    }
+    return nil
   }
   
   private func initViews() {
