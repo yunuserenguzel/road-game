@@ -10,21 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  var cellArea = UIView()
+  var cellArea:CellArea!
   
   var map:Map! {
     didSet {
-      generateGrids()
+      generateCellArea()
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.whiteColor()
+  }
+  
+  func generateCellArea() {
+    cellArea = CellArea(map: map)
     
     cellArea.setTranslatesAutoresizingMaskIntoConstraints(false)
     cellArea.backgroundColor = UIColor.lightGrayColor()
     view.addSubview(cellArea)
+    
     var views = [
       "cellArea":cellArea
     ]
@@ -38,13 +43,8 @@ class ViewController: UIViewController {
     
     view.addConstraints(NSLayoutConstraint
       .constraintsWithVisualFormat("V:|-20-[cellArea]", options: nil, metrics: nil, views: views))
-    
   }
   
-  func generateGrids() {
-    
-  }
-
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

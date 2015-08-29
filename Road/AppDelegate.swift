@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var viewController = ViewController()
     window?.rootViewController = viewController
     viewController.map = Map(
-      size: CGSizeMake(6, 6),
+      size: Map.Size(cols: 6,rows: 6),
       blockGrids: [
-        CGPointMake(0, 2),
-        CGPointMake(4, 5),
-        CGPointMake(1, 3)
+        Map.Point(x: 0, y: 2),
+        Map.Point(x: 4, y: 5),
+        Map.Point(x: 1, y: 3)
       ])
     
     return true

@@ -8,13 +8,30 @@
 
 import UIKit
 
+
 class Map: NSObject {
+  struct Size {
+    var cols:Int
+    var rows:Int
+  }
+  struct Point {
+    var x:Int
+    var y:Int
+  }
+  var size:Map.Size
+  var blockGrids:Array<Map.Point>
   
-  var blockGrids:Array<CGPoint>
-  var size:CGSize
-  
-  init(size:CGSize,blockGrids:Array<CGPoint>) {
-     self.blockGrids = blockGrids
+  init(size:Map.Size,blockGrids:Array<Map.Point>) {
+    self.blockGrids = blockGrids
     self.size = size
   }
+  func hasBlock(point:Point) -> Bool {
+    for block in blockGrids {
+      if block.x == point.x && block.y == point.y {
+        return true
+      }
+    }
+    return false
+  }
+  
 }
