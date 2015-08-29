@@ -9,18 +9,14 @@
 import UIKit
 
 class CellArea: UIView {
-  var map:Map {
-    get {
-      return _map
-    }
-  }
+  private(set) var map:Map!
+  private var lastHitCell:CellView!
   
-  private var _map:Map!
   var cells = [CellView]()
   
   init(map:Map) {
     super.init(frame: CGRect.zeroRect)
-    _map = map
+    self.map = map
     initViews()
   }
   
@@ -45,8 +41,8 @@ class CellArea: UIView {
     for(var x=0; x<map.size.cols; x++) {
       verticalFormatStrings.append("")
     }
-    for(var x=0; x<map.size.cols; x++) {
-      for(var y=0; y<map.size.rows; y++) {
+    for(var x=0; x < map.size.cols; x++) {
+      for(var y=0; y < map.size.rows; y++) {
         var cell = CellView()
         cell.point = Map.Point(x: x, y: y)
         if map.hasBlock(cell.point) {
@@ -55,14 +51,12 @@ class CellArea: UIView {
           cell.cellType = CellType.active
         }
         cell.setTranslatesAutoresizingMaskIntoConstraints(false)
-        cell.label.text = String(format: "%d:%d",x,y)
-
         var cellString = String(format: "Cell_x%d_y%d",x,y)
         cellViews[cellString] = cell
         cells.append(cell)
         addSubview(cell)
-        horizontalFormatStrings[x] += String(format:"-1-[%@(Cell_x%d_y0)]",cellString,x)
-        verticalFormatStrings[y] += String(format: "-1-[%@(Cell_x0_y%d)]",cellString,y)
+        horizontalFormatStrings[y] += String(format:"-1-[%@(Cell_x0_y%d)]",cellString,x)
+        verticalFormatStrings[x] += String(format: "-1-[%@(Cell_x%d_y0)]",cellString,y)
       }
     }
     for(var y=0; y<map.size.rows; y++) {
@@ -101,21 +95,36 @@ class CellArea: UIView {
   override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
     var touch = touches.first as! UITouch
     if let cell = hitCell(touch, event: event) {
-      hightlightCell(cell)
+      if cell.cellType == CellType.active {
+        hightlightCell(cell)
+        lastHitCell = cell
+      } else {
+        hightlightCell(nil)
+      }
     }
   }
   override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
     var touch = touches.first as! UITouch
     if let cell = hitCell(touch, event: event) {
-      cell.state = CellState.hightlighted
-      hightlightCell(cell)
+      if cell.cellType == CellType.active {
+        hightlightCell(cell)
+        if lastHitCell != nil {
+          lastHitCell.connectWith(cell)
+          
+        }
+        lastHitCell = cell
+      } else {
+        hightlightCell(nil)
+      }
     }
   }
   override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
     hightlightCell(nil)
+    lastHitCell = nil
   }
   override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
     hightlightCell(nil)
+    lastHitCell = nil
   }
   
 }
