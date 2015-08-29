@@ -35,6 +35,7 @@ class CellArea: UIView {
   }
   
   func initViews() {
+    backgroundColor = UIColor.lightGrayColor()
     var cellViews = Dictionary<String,UIView>()
     var horizontalFormatStrings = [String]()
     var verticalFormatStrings = [String]()
@@ -87,7 +88,7 @@ class CellArea: UIView {
     return nil
   }
   
-  func hightlightCell(currentCell:CellView) {
+  func hightlightCell(currentCell:CellView?) {
     for cell in cells {
       if cell == currentCell {
         cell.state = CellState.hightlighted
@@ -111,10 +112,10 @@ class CellArea: UIView {
     }
   }
   override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-    
+    hightlightCell(nil)
   }
   override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-    
+    hightlightCell(nil)
   }
   
 }
