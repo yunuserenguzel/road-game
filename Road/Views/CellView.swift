@@ -62,7 +62,20 @@ class CellView: UIView {
     super.init(coder: aDecoder)
     initViews()
   }
-  
+  func clearConnections(){
+//    clear any connection for any direction. make the connection nil before calling disconnectFrom
+//    if let cell = connection.east {
+//      connection.east = nil
+//      cell.disconnectFrom(self)
+//    }
+  }
+  func disconnectFrom(cell:CellView) {
+// check for all directions and then call configure views if any connection is set to nil
+//    if connection.east == cell {
+//      connection.east = nil
+//    }
+
+  }
   func connectionCount() -> Int {
     return (connection.west != nil ? 1 : 0) +
       (connection.east != nil ? 1 : 0) +
