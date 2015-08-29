@@ -16,6 +16,8 @@
 		AEAB52F61B90E4F80088F2CE /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52F51B90E4F80088F2CE /* CellView.swift */; };
 		AEAB52F91B90EAAA0088F2CE /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52F81B90EAAA0088F2CE /* Map.swift */; };
 		AEAB52FB1B91D4360088F2CE /* CellArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52FA1B91D4360088F2CE /* CellArea.swift */; };
+		AEAB52FD1B92331C0088F2CE /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEAB52FC1B92331C0088F2CE /* ionicons.ttf */; };
+		AEAB52FF1B92336B0088F2CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52FE1B92336B0088F2CE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		AEAB52F51B90E4F80088F2CE /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		AEAB52F81B90EAAA0088F2CE /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		AEAB52FA1B91D4360088F2CE /* CellArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellArea.swift; sourceTree = "<group>"; };
+		AEAB52FC1B92331C0088F2CE /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
+		AEAB52FE1B92336B0088F2CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				AEAB52D91B90E2E70088F2CE /* LaunchScreen.xib */,
 				AEAB52CF1B90E2E70088F2CE /* Road.xcdatamodeld */,
 				AEAB52CB1B90E2E70088F2CE /* Supporting Files */,
+				AEAB52FE1B92336B0088F2CE /* Constants.swift */,
 			);
 			path = Road;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 		AEAB52CB1B90E2E70088F2CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AEAB52FC1B92331C0088F2CE /* ionicons.ttf */,
 				AEAB52CC1B90E2E70088F2CE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -233,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEAB52FD1B92331C0088F2CE /* ionicons.ttf in Resources */,
 				AEAB52DB1B90E2E70088F2CE /* LaunchScreen.xib in Resources */,
 				AEAB52D81B90E2E70088F2CE /* Images.xcassets in Resources */,
 			);
@@ -256,6 +263,7 @@
 				AEAB52F61B90E4F80088F2CE /* CellView.swift in Sources */,
 				AEAB52F41B90E4540088F2CE /* ViewController.swift in Sources */,
 				AEAB52CE1B90E2E70088F2CE /* AppDelegate.swift in Sources */,
+				AEAB52FF1B92336B0088F2CE /* Constants.swift in Sources */,
 				AEAB52FB1B91D4360088F2CE /* CellArea.swift in Sources */,
 				AEAB52D11B90E2E70088F2CE /* Road.xcdatamodeld in Sources */,
 			);
