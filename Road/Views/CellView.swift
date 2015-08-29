@@ -79,7 +79,7 @@ class CellView: UIView {
     }
     
     if point.x == cell.point.x {
-      if point.y > cell.point.y { // north
+      if point.y == cell.point.y + 1  { // north
         connection.north = cell
         println("north connection")
         configureViews()
@@ -87,7 +87,7 @@ class CellView: UIView {
           cell.connectWith(self)
         }
       }
-      else if point.y < cell.point.x { // south
+      else if point.y + 1 == cell.point.y { // south
         connection.south = cell
         configureViews()
         println("south connection")
@@ -97,7 +97,7 @@ class CellView: UIView {
       }
     }
     else if point.y == cell.point.y {
-      if point.x > cell.point.x { // west
+      if point.x == cell.point.x + 1 { // west
         connection.west = cell
         configureViews()
         println("west connection")
@@ -105,7 +105,7 @@ class CellView: UIView {
           cell.connectWith(self)
         }
       }
-      else if point.x < cell.point.x { // east
+      else if point.x + 1 == cell.point.x { // east
         connection.east = cell
         configureViews()
         println("east connection")

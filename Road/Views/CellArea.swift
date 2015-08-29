@@ -110,7 +110,6 @@ class CellArea: UIView {
         hightlightCell(cell)
         if lastHitCell != nil {
           lastHitCell.connectWith(cell)
-          
         }
         lastHitCell = cell
       } else {
