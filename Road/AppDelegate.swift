@@ -24,9 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     viewController.map = Map(
       size: Map.Size(cols: 6,rows: 6),
       blockGrids: [
-        Map.Point(x: 0, y: 2),
-        Map.Point(x: 4, y: 5),
-        Map.Point(x: 1, y: 3)
+        Map.Point(x: 3, y: 0),
+        Map.Point(x: 1, y: 3),
+        Map.Point(x: 5, y: 3),
+        Map.Point(x: 2, y: 5)
       ])
     
     return true

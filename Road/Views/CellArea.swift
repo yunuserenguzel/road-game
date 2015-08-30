@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol CellAreaDelegate {
+  func gameCompleted()
+}
+
 class CellArea: UIView {
   private(set) var map:Map!
   private var lastHitCell:CellView!
   
   var cells = [CellView]()
+  
+  var delegate:CellAreaDelegate?
   
   init(map:Map) {
     super.init(frame: CGRect.zeroRect)
@@ -71,8 +77,20 @@ class CellArea: UIView {
       addConstraints(NSLayoutConstraint
         .constraintsWithVisualFormat(string, options: nil, metrics: nil, views: cellViews))
     }
-
   }
+  
+  func checkGame() {
+    for cell in cells {
+      if cell.cellType == CellType.active {
+        if cell.connectionCount() != 2 {
+          return
+        }
+      }
+    }
+    
+    self.delegate?.gameCompleted()
+  }
+  
   func hitCell(touch:UITouch, event:UIEvent) -> CellView? {
     for cell in cells {
       if cell.pointInside(touch.locationInView(cell), withEvent: event) {
@@ -112,6 +130,7 @@ class CellArea: UIView {
           if lastHitCell.connectWith(cell) {
             lastHitCell = cell
           }
+          checkGame()
         }
       } else {
         hightlightCell(nil)

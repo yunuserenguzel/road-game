@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CellAreaDelegate {
   
   var cellArea:CellArea!
   var resetButton = UIButton()
@@ -65,6 +65,14 @@ class ViewController: UIViewController {
     
     view.addConstraints(NSLayoutConstraint
       .constraintsWithVisualFormat("V:|-20-[cellArea]", options: nil, metrics: nil, views: views))
+    
+    cellArea.delegate = self
+  }
+  
+  func gameCompleted() {
+    var alert = UIAlertController(title: "Congratulations!", message: "Game Completed Successfully.", preferredStyle: UIAlertControllerStyle.Alert)
+    alert.addAction(UIAlertAction(title: "Thanks!", style: UIAlertActionStyle.Default, handler: nil))
+    self.presentViewController(alert, animated: true, completion: nil)
   }
   
   override func didReceiveMemoryWarning() {
