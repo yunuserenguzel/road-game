@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window?.makeKeyAndVisible()
-    var viewController = ViewController()
+    var gameViewController = GameViewController()
     var navigationController = UINavigationController(rootViewController: MapSelectionViewController())
+    navigationController.interactivePopGestureRecognizer.enabled = false
     window?.rootViewController = navigationController
-    viewController.map = Map(
+    gameViewController.map = Map(
       difficulty: "Modarate",
       size: Map.Size(cols: 6,rows: 6),
       blockGrids: [

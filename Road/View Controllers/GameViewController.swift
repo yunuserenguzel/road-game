@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, CellAreaDelegate {
+class GameViewController: UIViewController, CellAreaDelegate {
   
   var cellArea:CellArea!
   var resetButton = UIButton()

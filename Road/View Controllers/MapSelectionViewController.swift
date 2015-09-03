@@ -84,9 +84,9 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    var viewController =  ViewController()
-    self.navigationController?.pushViewController(viewController, animated: true)
-    viewController.map = maps[indexPath.row]
+    var gameViewController =  GameViewController()
+    self.navigationController?.pushViewController(gameViewController, animated: true)
+    gameViewController.map = maps[indexPath.row]
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
     /*

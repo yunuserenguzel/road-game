@@ -12,7 +12,7 @@
 		AEAB52D81B90E2E70088F2CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEAB52D71B90E2E70088F2CE /* Images.xcassets */; };
 		AEAB52DB1B90E2E70088F2CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEAB52D91B90E2E70088F2CE /* LaunchScreen.xib */; };
 		AEAB52E71B90E2E70088F2CE /* RoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52E61B90E2E70088F2CE /* RoadTests.swift */; };
-		AEAB52F41B90E4540088F2CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52F31B90E4540088F2CE /* ViewController.swift */; };
+		AEAB52F41B90E4540088F2CE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52F31B90E4540088F2CE /* GameViewController.swift */; };
 		AEAB52F61B90E4F80088F2CE /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52F51B90E4F80088F2CE /* CellView.swift */; };
 		AEAB52F91B90EAAA0088F2CE /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52F81B90EAAA0088F2CE /* Map.swift */; };
 		AEAB52FB1B91D4360088F2CE /* CellArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52FA1B91D4360088F2CE /* CellArea.swift */; };
@@ -42,7 +42,7 @@
 		AEAB52E01B90E2E70088F2CE /* RoadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAB52E51B90E2E70088F2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEAB52E61B90E2E70088F2CE /* RoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTests.swift; sourceTree = "<group>"; };
-		AEAB52F31B90E4540088F2CE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AEAB52F31B90E4540088F2CE /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AEAB52F51B90E4F80088F2CE /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		AEAB52F81B90EAAA0088F2CE /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		AEAB52FA1B91D4360088F2CE /* CellArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellArea.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		AEAB52F11B90E43C0088F2CE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AEAB52F31B90E4540088F2CE /* ViewController.swift */,
+				AEAB52F31B90E4540088F2CE /* GameViewController.swift */,
 				AEF4DE811B983AAF00015D96 /* MapSelectionViewController.swift */,
 			);
 			path = "View Controllers";
@@ -269,7 +269,7 @@
 				AEAB52F91B90EAAA0088F2CE /* Map.swift in Sources */,
 				AEAB52F61B90E4F80088F2CE /* CellView.swift in Sources */,
 				AEF4DE841B983C3100015D96 /* MapTableViewCell.swift in Sources */,
-				AEAB52F41B90E4540088F2CE /* ViewController.swift in Sources */,
+				AEAB52F41B90E4540088F2CE /* GameViewController.swift in Sources */,
 				AEAB52CE1B90E2E70088F2CE /* AppDelegate.swift in Sources */,
 				AEF4DE821B983AAF00015D96 /* MapSelectionViewController.swift in Sources */,
 				AEAB52FF1B92336B0088F2CE /* Constants.swift in Sources */,
