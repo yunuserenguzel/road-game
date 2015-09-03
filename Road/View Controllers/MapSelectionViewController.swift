@@ -48,6 +48,17 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
         Map.Point(x: 4, y: 4),
         Map.Point(x: 5, y: 6),
         Map.Point(x: 3, y: 7)
+      ]),
+    Map(
+      difficulty: "Hard",
+      size: Map.Size(cols: 8,rows: 8),
+      blockGrids: [
+        Map.Point(x: 1, y: 1),
+        Map.Point(x: 4, y: 1),
+        Map.Point(x: 6, y: 2),
+        Map.Point(x: 0, y: 4),
+        Map.Point(x: 7, y: 4),
+        Map.Point(x: 3, y: 6)
       ])
   ]
   let mapTableCellIdentifier = "MapCell"
