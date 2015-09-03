@@ -20,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window?.makeKeyAndVisible()
     var viewController = ViewController()
-    window?.rootViewController = viewController
+    var navigationController = UINavigationController(rootViewController: MapSelectionViewController())
+    window?.rootViewController = navigationController
     viewController.map = Map(
+      difficulty: "Modarate",
       size: Map.Size(cols: 6,rows: 6),
       blockGrids: [
         Map.Point(x: 3, y: 0),
@@ -29,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Map.Point(x: 5, y: 3),
         Map.Point(x: 2, y: 5)
       ])
+    
+    
     
     return true
   }

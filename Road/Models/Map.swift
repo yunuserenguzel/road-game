@@ -20,8 +20,10 @@ class Map: NSObject {
   }
   var size:Map.Size
   var blockGrids:Array<Map.Point>
+  var difficulty:String //change this to enum
   
-  init(size:Map.Size,blockGrids:Array<Map.Point>) {
+  init(difficulty:String,size:Map.Size,blockGrids:Array<Map.Point>) {
+    self.difficulty = difficulty
     self.blockGrids = blockGrids
     self.size = size
   }

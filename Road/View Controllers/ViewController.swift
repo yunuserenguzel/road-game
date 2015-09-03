@@ -21,6 +21,8 @@ class ViewController: UIViewController, CellAreaDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.edgesForExtendedLayout = UIRectEdge.None;
+
     view.backgroundColor = UIColor.whiteColor()
     
     resetButton.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -38,41 +40,49 @@ class ViewController: UIViewController, CellAreaDelegate {
       .constraintsWithVisualFormat("H:|[reset]|", options: nil, metrics: nil, views: views))
     view.addConstraints(NSLayoutConstraint
       .constraintsWithVisualFormat("V:[reset(44)]-0-|", options: nil, metrics: nil, views: views))
-    
   }
   
   func reset() {
-    cellArea.removeFromSuperview()
-    cellArea = nil
-    generateCellArea()
+//    cellArea.removeFromSuperview()
+//    cellArea = nil
+//    generateCellArea()
+    cellArea.resetGame()
   }
   
   func generateCellArea() {
     cellArea = CellArea(map: map)
-    cellArea.setTranslatesAutoresizingMaskIntoConstraints(false)
+    var edge = min(view.frame.size.width, view.frame.size.height)
+    cellArea.frame = CGRectMake(0, 20, edge, edge)
+    
     view.addSubview(cellArea)
     
-    var views = [
-      "cellArea":cellArea
-    ]
-    
-    view.addConstraints([
-      NSLayoutConstraint(item: cellArea, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: cellArea, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
-      ])
-    
-    view.addConstraints(NSLayoutConstraint
-      .constraintsWithVisualFormat("H:|-20-[cellArea]-20-|", options: nil, metrics: nil, views: views))
-    
-    view.addConstraints(NSLayoutConstraint
-      .constraintsWithVisualFormat("V:|-20-[cellArea]", options: nil, metrics: nil, views: views))
+//    cellArea.setTranslatesAutoresizingMaskIntoConstraints(false)
+//    var views = [
+//      "cellArea":cellArea
+//    ]
+//    
+//    view.addConstraints([
+//      NSLayoutConstraint(item: cellArea, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: cellArea, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
+//      ])
+//    
+//    view.addConstraints(NSLayoutConstraint
+//      .constraintsWithVisualFormat("H:|-0-[cellArea]-0-|", options: nil, metrics: nil, views: views))
+//    
+//    view.addConstraints(NSLayoutConstraint
+//      .constraintsWithVisualFormat("V:|-20-[cellArea]", options: nil, metrics: nil, views: views))
     
     cellArea.delegate = self
   }
   
   func gameCompleted() {
     var alert = UIAlertController(title: "Congratulations!", message: "Game Completed Successfully.", preferredStyle: UIAlertControllerStyle.Alert)
-    alert.addAction(UIAlertAction(title: "Thanks!", style: UIAlertActionStyle.Default, handler: nil))
+    
+    alert.addAction(UIAlertAction(title: "Thanks!", style: UIAlertActionStyle.Default, handler: { (asd) -> Void in
+      self.navigationController?.popViewControllerAnimated(true)
+    }))
     self.presentViewController(alert, animated: true, completion: nil)
+  }
+  func exit() {
   }
   
   override func didReceiveMemoryWarning() {

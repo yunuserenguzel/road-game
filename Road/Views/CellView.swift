@@ -40,6 +40,8 @@ class CellView: UIView {
     }
   }
   
+  
+  
   var connection:Connection = Connection()
   private var connectionView:ConnectionView = ConnectionView()
   
@@ -62,29 +64,114 @@ class CellView: UIView {
     super.init(coder: aDecoder)
     initViews()
   }
+  
+  func redirectedCellFrom(cell:CellView?) -> CellView? {
+    if(connection.north != cell && connection.north != nil) {
+      return connection.north
+    }
+    else if (connection.south != cell && connection.south != nil) {
+      return connection.south
+    }
+    else if (connection.west != cell && connection.west != nil) {
+      return connection.west
+    }
+    else if (connection.east != cell && connection.east != nil) {
+      return connection.east
+    }
+    else {
+      return nil;
+    }
+  }
+  
   func clearConnections(){
 //    clear any connection for any direction. make the connection nil before calling disconnectFrom
-//    if let cell = connection.east {
-//      connection.east = nil
-//      cell.disconnectFrom(self)
-//    }
+    if let cell = connection.north {
+      connection.north = nil
+      cell.disconnectFrom(self)
+    }
+    if let cell = connection.south {
+      connection.south = nil
+      cell.disconnectFrom(cell)
+    }
+    if let cell = connection.east {
+      connection.east = nil
+      cell.disconnectFrom(self)
+    }
+    if let cell = connection.west {
+      connection.west = nil
+      cell.disconnectFrom(self)
+    }
+    configureViews()
   }
   func disconnectFrom(cell:CellView) {
 // check for all directions and then call configure views if any connection is set to nil
-//    if connection.east == cell {
-//      connection.east = nil
-//    }
-
+    if connection.east == cell {
+      connection.east = nil
+      configureViews()
+      if cell.connection.west == self {
+        cell.disconnectFrom(self)
+      }
+    }
+    else if connection.north == cell {
+      connection.north = nil
+      configureViews()
+      if cell.connection.south == self {
+        cell.disconnectFrom(self)
+      }
+    }
+    else if connection.south == cell {
+      connection.south = nil
+      configureViews()
+      if cell.connection.north == self {
+        cell.disconnectFrom(self)
+      }
+    }
+    else if connection.west == cell {
+      connection.west = nil
+      configureViews()
+      if cell.connection.east == self {
+        cell.disconnectFrom(self)
+      }
+    }
   }
+  
+  
   func connectionCount() -> Int {
     return (connection.west != nil ? 1 : 0) +
       (connection.east != nil ? 1 : 0) +
       (connection.north != nil ? 1 : 0) +
       (connection.south != nil ? 1 : 0)
   }
+  
+  func connectOrDisconnect(cell:CellView) -> Bool {
+    if let direction = findDirection(cell) as Direction! {
+      var isConnected = false
+      switch direction {
+      case .North:
+        isConnected = self.connection.north == cell
+      case .South:
+        isConnected = self.connection.south == cell
+      case .West:
+        isConnected = self.connection.west == cell
+      case .East:
+        isConnected = self.connection.east == cell
+      }
+      if isConnected {
+        disconnectFrom(cell)
+        return true
+      } else {
+        return connectWith(cell)
+      }
+    }
+    return false
+
+  }
+  
   func connectWith(cell:CellView) -> Bool {
-    var direction = tryConnectWith(cell)
-    if let direction = tryConnectWith(cell) as Direction! {
+    if connectionCount() > 1 {
+      return false
+    }
+    if let direction = findDirection(cell) as Direction! {
       switch direction {
       case .North:
         connection.north = cell
@@ -112,10 +199,8 @@ class CellView: UIView {
     }
     return false
   }
-  func tryConnectWith(cell:CellView) -> Direction? {
-    if connectionCount() > 1 {
-      return nil
-    }
+  func findDirection(cell:CellView) -> Direction? {
+    
     if cell == self {
       return nil
     }
@@ -221,18 +306,10 @@ class CellView: UIView {
     } else {
       backgroundColor = UIColor.grayColor()
     }
-    if connection.north != nil {
-      connectionView.north.hidden = false
-    }
-    if connection.east != nil {
-      connectionView.east.hidden = false
-    }
-    if connection.south != nil {
-      connectionView.south.hidden = false
-    }
-    if connection.west != nil {
-      connectionView.west.hidden = false
-    }
+    connectionView.north.hidden = connection.north == nil
+    connectionView.east.hidden = connection.east == nil
+    connectionView.south.hidden = connection.south == nil
+    connectionView.west.hidden = connection.west == nil
   }
   
   

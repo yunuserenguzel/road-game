@@ -47,8 +47,8 @@ class CellArea: UIView {
     for(var x=0; x<map.size.cols; x++) {
       verticalFormatStrings.append("")
     }
-    for(var x=0; x < map.size.cols; x++) {
-      for(var y=0; y < map.size.rows; y++) {
+    for(var y=0; y < map.size.rows; y++) {
+      for(var x=0; x < map.size.cols; x++) {
         var cell = CellView()
         cell.point = Map.Point(x: x, y: y)
         if map.hasBlock(cell.point) {
@@ -58,6 +58,7 @@ class CellArea: UIView {
         }
         cell.setTranslatesAutoresizingMaskIntoConstraints(false)
         var cellString = String(format: "Cell_x%d_y%d",x,y)
+//        cell.label.text = String(format: "%d:%d", x,y)
         cellViews[cellString] = cell
         cells.append(cell)
         addSubview(cell)
@@ -67,13 +68,13 @@ class CellArea: UIView {
     }
     for(var y=0; y<map.size.rows; y++) {
       var string = String(format: "V:|%@-1-|", verticalFormatStrings[y])
-      //      println(string)
+//            println(string)
       addConstraints(NSLayoutConstraint
         .constraintsWithVisualFormat(string, options: nil, metrics: nil, views: cellViews))
     }
     for(var x=0; x<map.size.cols; x++) {
       var string = String(format: "H:|%@-1-|", horizontalFormatStrings[x])
-      //      println(string)
+//            println(string)
       addConstraints(NSLayoutConstraint
         .constraintsWithVisualFormat(string, options: nil, metrics: nil, views: cellViews))
     }
@@ -87,8 +88,33 @@ class CellArea: UIView {
         }
       }
     }
-    
-    self.delegate?.gameCompleted()
+    var firstCell:CellView!
+    for cell in cells {
+      if cell.cellType == CellType.active {
+        firstCell = cell
+        break;
+      }
+    }
+    var currentCell:CellView? = firstCell
+    var previousCell:CellView? = nil
+    var count = 1
+    while let cell = currentCell?.redirectedCellFrom(previousCell) {
+      if cell == firstCell {
+        break;
+      }
+      previousCell = currentCell
+      currentCell = cell
+      count += 1
+    }
+    if count + map.blockGrids.count == map.size.cols*map.size.rows {
+      self.delegate?.gameCompleted()
+    }
+  }
+  
+  func resetGame() {
+    for cell in cells {
+      cell.clearConnections()
+    }
   }
   
   func hitCell(touch:UITouch, event:UIEvent) -> CellView? {
@@ -127,10 +153,9 @@ class CellArea: UIView {
       if cell.cellType == CellType.active {
         hightlightCell(cell)
         if lastHitCell != nil {
-          if lastHitCell.connectWith(cell) {
+          if lastHitCell.connectOrDisconnect(cell) {
             lastHitCell = cell
           }
-          checkGame()
         }
       } else {
         hightlightCell(nil)
@@ -140,10 +165,20 @@ class CellArea: UIView {
   override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
     hightlightCell(nil)
     lastHitCell = nil
+    checkGame()
   }
   override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
     hightlightCell(nil)
     lastHitCell = nil
+    checkGame()
+  }
+  
+  func snapShot() -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
+    self.layer.renderInContext(UIGraphicsGetCurrentContext())
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image
   }
   
 }
