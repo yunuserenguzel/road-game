@@ -63,11 +63,15 @@ class MapTableViewCell: UITableViewCell {
     
     func configureViews() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
-                let cellArea = GridView(map: self.map)
+            
+                var cellArea: GridView!
+                bench("GridView") {
+                    cellArea = GridView(map: self.map)
+                }
                 cellArea.frame = CGRectMake(0, 0, 164, 164)
                 cellArea.setNeedsLayout()
                 cellArea.layoutIfNeeded()
+            dispatch_async(dispatch_get_main_queue()) {
                 cellArea.opaque = true
                 let snapshot = cellArea.snapShot()
                 self.mapOverview.image = snapshot

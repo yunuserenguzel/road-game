@@ -90,7 +90,7 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
         playRandomMapButton.addTarget(self, action: "playRandomMap", forControlEvents: .TouchUpInside)
         view.addSubview(playRandomMapButton)
         
-        maps = Map.mapsFrom(groupName: "MapSize_8x8_1459693991")!
+        maps = Map.mapsFrom(groupName: "MapSize_8x8_1474150464")!
         
         let views = [
             "table": tableView,
