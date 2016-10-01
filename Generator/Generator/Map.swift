@@ -10,4 +10,14 @@ import Foundation
 
 class Map {
     
+    let size: Int
+    var cells: [[Cell]] = []
+    
+    init(size: Int) {
+        self.size = size
+        cells = (0..<size).map {_ in
+            
+        }
+    }
+    
 }

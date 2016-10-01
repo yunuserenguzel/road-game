@@ -14,10 +14,6 @@ class Cell: NSObject {
     let cellType: CellType
     var connection: Connection = Connection()
     
-    var canConnect: Bool {
-        return false
-    }
-    
     init(point: Point, cellType: CellType) {
         self.point = point
         self.cellType = cellType
