@@ -8,7 +8,7 @@
 
 import XCTest
 
-class GeneratorUnitTests: XCTestCase {
+class CellUnitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

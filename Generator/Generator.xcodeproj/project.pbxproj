@@ -14,7 +14,8 @@
 		AE5E3BCF1D91F3AF005A99FD /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA581D91CF8700529393 /* Map.swift */; };
 		AE5E3BD01D91F3AF005A99FD /* MapGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */; };
 		AE5E3BD11D91F3AF005A99FD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5C1D91CFAD00529393 /* Point.swift */; };
-		AE5E3BD21D91F3E1005A99FD /* GeneratorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953ABA1D91EAAF00A4DFC7 /* GeneratorUnitTests.swift */; };
+		AE609EA21D92FF830013A6AC /* MapUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE609EA11D92FF830013A6AC /* MapUnitTests.swift */; };
+		AE609EA31D92FFBF0013A6AC /* CellUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */; };
 		AE953AB21D91D78600A4DFC7 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953AB11D91D78600A4DFC7 /* Connection.swift */; };
 		AEDFFA531D91CF3000529393 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA521D91CF3000529393 /* Cell.swift */; };
 		AEDFFA551D91CF5400529393 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA541D91CF5400529393 /* CellType.swift */; };
@@ -38,8 +39,9 @@
 
 /* Begin PBXFileReference section */
 		AE5E3BC31D91F39A005A99FD /* GeneratorUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeneratorUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE609EA11D92FF830013A6AC /* MapUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUnitTests.swift; sourceTree = "<group>"; };
 		AE953AB11D91D78600A4DFC7 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		AE953ABA1D91EAAF00A4DFC7 /* GeneratorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorUnitTests.swift; sourceTree = "<group>"; };
+		AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUnitTests.swift; sourceTree = "<group>"; };
 		AE953ABC1D91EAAF00A4DFC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEDFFA481D91CE0300529393 /* Generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Generator; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEDFFA521D91CF3000529393 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -79,7 +81,8 @@
 		AE953AB91D91EAAF00A4DFC7 /* GeneratorUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				AE953ABA1D91EAAF00A4DFC7 /* GeneratorUnitTests.swift */,
+				AE609EA11D92FF830013A6AC /* MapUnitTests.swift */,
+				AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */,
 				AE953ABC1D91EAAF00A4DFC7 /* Info.plist */,
 			);
 			path = GeneratorUnitTests;
@@ -211,11 +214,12 @@
 				AE5E3BD11D91F3AF005A99FD /* Point.swift in Sources */,
 				AE5E3BD01D91F3AF005A99FD /* MapGenerator.swift in Sources */,
 				AE5E3BCB1D91F3AF005A99FD /* CellType.swift in Sources */,
+				AE609EA21D92FF830013A6AC /* MapUnitTests.swift in Sources */,
 				AE5E3BCC1D91F3AF005A99FD /* Cell.swift in Sources */,
 				AE5E3BCE1D91F3AF005A99FD /* Direction.swift in Sources */,
-				AE5E3BD21D91F3E1005A99FD /* GeneratorUnitTests.swift in Sources */,
 				AE5E3BCF1D91F3AF005A99FD /* Map.swift in Sources */,
 				AE5E3BCD1D91F3AF005A99FD /* Connection.swift in Sources */,
+				AE609EA31D92FFBF0013A6AC /* CellUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
