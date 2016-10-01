@@ -138,5 +138,4 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
         gameViewController.map = maps[index]
     }
     
-    
 }

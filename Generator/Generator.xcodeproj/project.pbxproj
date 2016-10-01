@@ -16,7 +16,6 @@
 		AE5E3BD11D91F3AF005A99FD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5C1D91CFAD00529393 /* Point.swift */; };
 		AE5E3BD21D91F3E1005A99FD /* GeneratorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953ABA1D91EAAF00A4DFC7 /* GeneratorUnitTests.swift */; };
 		AE953AB21D91D78600A4DFC7 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953AB11D91D78600A4DFC7 /* Connection.swift */; };
-		AEDFFA4C1D91CE0300529393 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA4B1D91CE0300529393 /* main.swift */; };
 		AEDFFA531D91CF3000529393 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA521D91CF3000529393 /* Cell.swift */; };
 		AEDFFA551D91CF5400529393 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA541D91CF5400529393 /* CellType.swift */; };
 		AEDFFA571D91CF6100529393 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA561D91CF6100529393 /* Direction.swift */; };
@@ -43,7 +42,6 @@
 		AE953ABA1D91EAAF00A4DFC7 /* GeneratorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorUnitTests.swift; sourceTree = "<group>"; };
 		AE953ABC1D91EAAF00A4DFC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEDFFA481D91CE0300529393 /* Generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Generator; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEDFFA4B1D91CE0300529393 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AEDFFA521D91CF3000529393 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AEDFFA541D91CF5400529393 /* CellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		AEDFFA561D91CF6100529393 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 		AEDFFA4A1D91CE0300529393 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
-				AEDFFA4B1D91CE0300529393 /* main.swift */,
 				AEDFFA541D91CF5400529393 /* CellType.swift */,
 				AEDFFA521D91CF3000529393 /* Cell.swift */,
 				AE953AB11D91D78600A4DFC7 /* Connection.swift */,
@@ -227,7 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEDFFA591D91CF8700529393 /* Map.swift in Sources */,
-				AEDFFA4C1D91CE0300529393 /* main.swift in Sources */,
 				AEDFFA5B1D91CF9500529393 /* MapGenerator.swift in Sources */,
 				AEDFFA551D91CF5400529393 /* CellType.swift in Sources */,
 				AEDFFA5D1D91CFAD00529393 /* Point.swift in Sources */,

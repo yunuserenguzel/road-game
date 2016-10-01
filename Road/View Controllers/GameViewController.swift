@@ -82,14 +82,8 @@ class GameViewController: UIViewController, CellAreaDelegate {
     }))
     self.present(alert, animated: true, completion: nil)
   }
-  func exit() {
-  }
+    
+  func exit() {}
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 

@@ -23,11 +23,9 @@ class Cell: NSObject {
         self.cellType = cellType
     }
     
-    
     func canConnect(toCell cell: Cell) -> Bool {
         guard connection.count < 2 else { return false }
         guard cell.connection.count < 2 else { return false }
-        
         return true
     }
     
@@ -62,33 +60,3 @@ class Cell: NSObject {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

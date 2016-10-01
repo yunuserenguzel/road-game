@@ -312,7 +312,5 @@ class CellView: UIView {
         connectionView.south.isHidden = connection.south == nil
         connectionView.west.isHidden = connection.west == nil
     }
-    
-    
-    
+
 }

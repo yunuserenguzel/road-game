@@ -8,8 +8,9 @@
 
 import Foundation
 class MapLoader {
-  static func loadMaps() -> [Map] {
     
+  static func loadMaps() -> [Map] {
     return []
   }
+    
 }
