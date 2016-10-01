@@ -21,15 +21,15 @@ class GameViewController: UIViewController, CellAreaDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.edgesForExtendedLayout = UIRectEdge.None;
+    self.edgesForExtendedLayout = UIRectEdge();
 
-    view.backgroundColor = UIColor.whiteColor()
+    view.backgroundColor = UIColor.white
     
     resetButton.translatesAutoresizingMaskIntoConstraints = false
-    resetButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-    resetButton.setTitle("Reset", forState: UIControlState.Normal)
-    resetButton.backgroundColor = UIColor.lightGrayColor()
-    resetButton.addTarget(self, action: "reset", forControlEvents: UIControlEvents.TouchUpInside)
+    resetButton.setTitleColor(UIColor.black, for: UIControlState())
+    resetButton.setTitle("Reset", for: UIControlState())
+    resetButton.backgroundColor = UIColor.lightGray
+    resetButton.addTarget(self, action: #selector(GameViewController.reset), for: UIControlEvents.touchUpInside)
     view.addSubview(resetButton)
     
     let views = [
@@ -37,9 +37,9 @@ class GameViewController: UIViewController, CellAreaDelegate {
     ]
     
     view.addConstraints(NSLayoutConstraint
-      .constraintsWithVisualFormat("H:|[reset]|", options: [], metrics: nil, views: views))
+      .constraints(withVisualFormat: "H:|[reset]|", options: [], metrics: nil, views: views))
     view.addConstraints(NSLayoutConstraint
-      .constraintsWithVisualFormat("V:[reset(44)]-0-|", options: [], metrics: nil, views: views))
+      .constraints(withVisualFormat: "V:[reset(44)]-0-|", options: [], metrics: nil, views: views))
   }
   
   func reset() {
@@ -52,7 +52,7 @@ class GameViewController: UIViewController, CellAreaDelegate {
   func generateCellArea() {
     gridView = GridView(map: map)
     let edge = min(view.frame.size.width, view.frame.size.height)
-    gridView.frame = CGRectMake(0, 20, edge, edge)
+    gridView.frame = CGRect(x: 0, y: 20, width: edge, height: edge)
     
     view.addSubview(gridView)
     
@@ -75,12 +75,12 @@ class GameViewController: UIViewController, CellAreaDelegate {
   }
   
   func gameCompleted() {
-    let alert = UIAlertController(title: "Congratulations!", message: "Game Completed Successfully.", preferredStyle: UIAlertControllerStyle.Alert)
+    let alert = UIAlertController(title: "Congratulations!", message: "Game Completed Successfully.", preferredStyle: UIAlertControllerStyle.alert)
     
-    alert.addAction(UIAlertAction(title: "Thanks!", style: UIAlertActionStyle.Default, handler: { (asd) -> Void in
-      self.navigationController?.popViewControllerAnimated(true)
+    alert.addAction(UIAlertAction(title: "Thanks!", style: UIAlertActionStyle.default, handler: { (asd) -> Void in
+      self.navigationController?.popViewController(animated: true)
     }))
-    self.presentViewController(alert, animated: true, completion: nil)
+    self.present(alert, animated: true, completion: nil)
   }
   func exit() {
   }

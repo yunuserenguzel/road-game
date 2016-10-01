@@ -10,6 +10,6 @@ import Foundation
 
 enum CellType {
     
-    case Active, Passive
+    case active, passive
     
 }

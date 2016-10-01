@@ -10,7 +10,7 @@ import Foundation
 
 enum Direction {
     
-    case North, South, West, East
+    case north, south, west, east
     
 }
 
@@ -18,14 +18,14 @@ extension Direction {
     
     var opposite: Direction {
         switch self {
-        case .North:
-            return .South
-        case .South:
-            return .North
-        case .West:
-            return .East
-        case .East:
-            return .West
+        case .north:
+            return .south
+        case .south:
+            return .north
+        case .west:
+            return .east
+        case .east:
+            return .west
         }
     }
     
