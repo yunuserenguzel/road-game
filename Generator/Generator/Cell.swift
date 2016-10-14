@@ -19,11 +19,9 @@ class Cell: NSObject {
         self.cellType = cellType
     }
     
-    
     func canConnect(toCell cell: Cell) -> Bool {
         guard connection.count < 2 else { return false }
         guard cell.connection.count < 2 else { return false }
-        
         return true
     }
     
@@ -40,51 +38,21 @@ class Cell: NSObject {
     func location(ofCell cell: Cell) -> Direction? {
         if point.y == cell.point.y {
             if point.x + 1 == cell.point.x {
-                return .East
+                return .east
             }
             if point.x == cell.point.x + 1 {
-                return .West
+                return .west
             }
         }
         if point.x == cell.point.x {
             if point.y + 1 == cell.point.y {
-                return .South
+                return .south
             }
             if point.y == cell.point.y + 1 {
-                return .North
+                return .north
             }
         }
         return nil
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

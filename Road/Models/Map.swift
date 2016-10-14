@@ -24,13 +24,13 @@ class Map: NSObject {
     var obstacles: Array<Point>
     var difficulty: String //change this to enum
     
-    static func mapsFrom(groupName groupName: String) -> [Map]? {
-        guard let resourcepath = NSBundle.mainBundle().resourcePath else { return nil }
-        guard let mapsGroupURL = NSURL(string: resourcepath)?.URLByAppendingPathComponent("Maps").URLByAppendingPathComponent(groupName) else { return nil }
+    static func mapsFrom(groupName: String) -> [Map]? {
+        guard let resourcepath = Bundle.main.resourcePath else { return nil }
+        guard let mapsGroupURL = URL(string: resourcepath)?.appendingPathComponent("Maps").appendingPathComponent(groupName) else { return nil }
         do {
-            let directoryContents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(mapsGroupURL.path!)
+            let directoryContents = try FileManager.default.contentsOfDirectory(atPath: mapsGroupURL.path)
             return directoryContents.flatMap {
-                Map(filePath: mapsGroupURL.URLByAppendingPathComponent($0).path!)
+                Map(filePath: mapsGroupURL.appendingPathComponent($0).path)
             }
         } catch {
             return nil
@@ -39,8 +39,8 @@ class Map: NSObject {
     
     convenience init?(filePath: String) {
         do {
-            guard let jsonData = NSData(contentsOfFile: filePath),
-                jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as? JSON
+            guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+                let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? JSON
                 else { return nil }
             guard let size = jsonResult["size"] as? Int else { return nil }
             guard let disabledCells = jsonResult["disabled_cells"] as? JSONArray else { return nil }
@@ -58,7 +58,7 @@ class Map: NSObject {
     }
     
     
-    func hasBlock(point:Point) -> Bool {
+    func hasBlock(_ point:Point) -> Bool {
         for block in obstacles {
             if block.x == point.x && block.y == point.y {
                 return true

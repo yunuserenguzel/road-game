@@ -17,7 +17,7 @@ enum CellState {
 }
 
 enum Direction {
-    case North,South,West,East
+    case north,south,west,east
 }
 
 class CellView: UIView {
@@ -44,7 +44,7 @@ class CellView: UIView {
     }
     
     var connection:Connection = Connection()
-    private var connectionView:ConnectionView = ConnectionView()
+    fileprivate var connectionView:ConnectionView = ConnectionView()
     
     var cellType:CellType! {
         didSet {
@@ -66,7 +66,7 @@ class CellView: UIView {
         initViews()
     }
     
-    func redirectedCellFrom(cell:CellView?) -> CellView? {
+    func redirectedCellFrom(_ cell:CellView?) -> CellView? {
         if(connection.north != cell && connection.north != nil) {
             return connection.north
         }
@@ -104,7 +104,7 @@ class CellView: UIView {
         }
         configureViews()
     }
-    func disconnectFrom(cell:CellView) {
+    func disconnectFrom(_ cell:CellView) {
         // check for all directions and then call configure views if any connection is set to nil
         if connection.east == cell {
             connection.east = nil
@@ -144,17 +144,17 @@ class CellView: UIView {
             (connection.south != nil ? 1 : 0)
     }
     
-    func connectOrDisconnect(cell:CellView) -> Bool {
+    func connectOrDisconnect(_ cell:CellView) -> Bool {
         if let direction = findDirection(cell) as Direction! {
             var isConnected = false
             switch direction {
-            case .North:
+            case .north:
                 isConnected = self.connection.north == cell
-            case .South:
+            case .south:
                 isConnected = self.connection.south == cell
-            case .West:
+            case .west:
                 isConnected = self.connection.west == cell
-            case .East:
+            case .east:
                 isConnected = self.connection.east == cell
             }
             if isConnected {
@@ -168,28 +168,28 @@ class CellView: UIView {
         
     }
     
-    func connectWith(cell:CellView) -> Bool {
+    func connectWith(_ cell:CellView) -> Bool {
         if connectionCount() > 1 {
             return false
         }
         if let direction = findDirection(cell) as Direction! {
             switch direction {
-            case .North:
+            case .north:
                 connection.north = cell
                 if cell.connection.south == nil {
                     cell.connectWith(self)
                 }
-            case .South:
+            case .south:
                 connection.south = cell
                 if cell.connection.north == nil {
                     cell.connectWith(self)
                 }
-            case .West:
+            case .west:
                 connection.west = cell
                 if cell.connection.east == nil {
                     cell.connectWith(self)
                 }
-            case .East:
+            case .east:
                 connection.east = cell
                 if cell.connection.west == nil {
                     cell.connectWith(self)
@@ -200,7 +200,7 @@ class CellView: UIView {
         }
         return false
     }
-    func findDirection(cell:CellView) -> Direction? {
+    func findDirection(_ cell:CellView) -> Direction? {
         
         if cell == self {
             return nil
@@ -214,13 +214,13 @@ class CellView: UIView {
                 if cell.connectionCount() > 1 && cell.connection.south == nil {
                     return nil
                 }
-                return Direction.North
+                return Direction.north
             }
             else if point.y + 1 == cell.point.y { // south
                 if cell.connectionCount() > 1 && cell.connection.north == nil {
                     return nil
                 }
-                return Direction.South
+                return Direction.south
             }
         }
         else if point.y == cell.point.y {
@@ -228,41 +228,41 @@ class CellView: UIView {
                 if cell.connectionCount() > 1 && cell.connection.east == nil {
                     return nil
                 }
-                return Direction.West
+                return Direction.west
             }
             else if point.x + 1 == cell.point.x { // east
                 if cell.connectionCount() > 1 && cell.connection.west == nil {
                     return nil
                 }
-                return Direction.East
+                return Direction.east
             }
         }
         return nil
     }
     
-    private func initViews() {
+    fileprivate func initViews() {
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         addSubview(label)
         
         connectionView.west.translatesAutoresizingMaskIntoConstraints = false
-        connectionView.west.backgroundColor = UIColor.blackColor()
-        connectionView.west.hidden = true
+        connectionView.west.backgroundColor = UIColor.black
+        connectionView.west.isHidden = true
         addSubview(connectionView.west)
         
         connectionView.east.translatesAutoresizingMaskIntoConstraints = false
-        connectionView.east.backgroundColor = UIColor.blackColor()
-        connectionView.east.hidden = true
+        connectionView.east.backgroundColor = UIColor.black
+        connectionView.east.isHidden = true
         addSubview(connectionView.east)
         
         connectionView.north.translatesAutoresizingMaskIntoConstraints = false
-        connectionView.north.backgroundColor = UIColor.blackColor()
-        connectionView.north.hidden = true
+        connectionView.north.backgroundColor = UIColor.black
+        connectionView.north.isHidden = true
         addSubview(connectionView.north)
         
         connectionView.south.translatesAutoresizingMaskIntoConstraints = false
-        connectionView.south.backgroundColor = UIColor.blackColor()
-        connectionView.south.hidden = true
+        connectionView.south.backgroundColor = UIColor.black
+        connectionView.south.isHidden = true
         addSubview(connectionView.south)
         
         let views = [
@@ -276,43 +276,41 @@ class CellView: UIView {
             "stroke":5
         ]
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:|[label]|", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "H:|[label]|", options: [], metrics: metrics, views: views))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:|[label]|", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "V:|[label]|", options: [], metrics: metrics, views: views))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:|-0-[north]-0-[south(north)]-0-|",
-                options: NSLayoutFormatOptions.AlignAllCenterX, metrics: metrics, views: views))
-        addConstraint(NSLayoutConstraint(item: connectionView.north, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0))
+            .constraints(withVisualFormat: "V:|-0-[north]-0-[south(north)]-0-|",
+                options: NSLayoutFormatOptions.alignAllCenterX, metrics: metrics, views: views))
+        addConstraint(NSLayoutConstraint(item: connectionView.north, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:[north(stroke)]", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "H:[north(stroke)]", options: [], metrics: metrics, views: views))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:[south(stroke)]", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "H:[south(stroke)]", options: [], metrics: metrics, views: views))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:|-0-[west]-0-[east(west)]-0-|",
-                options: NSLayoutFormatOptions.AlignAllCenterY, metrics: metrics, views: views))
-        addConstraint(NSLayoutConstraint(item: connectionView.west, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0))
+            .constraints(withVisualFormat: "H:|-0-[west]-0-[east(west)]-0-|",
+                options: NSLayoutFormatOptions.alignAllCenterY, metrics: metrics, views: views))
+        addConstraint(NSLayoutConstraint(item: connectionView.west, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerY, multiplier: 1.0, constant: 0))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:[west(stroke)]", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "V:[west(stroke)]", options: [], metrics: metrics, views: views))
         addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:[east(stroke)]", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "V:[east(stroke)]", options: [], metrics: metrics, views: views))
     }
     
     func configureViews() {
         if cellType == CellType.active {
             if state == CellState.hightlighted {
-                backgroundColor = UIColor.lightGrayColor()
+                backgroundColor = UIColor.lightGray
             } else {
-                backgroundColor = UIColor.whiteColor()
+                backgroundColor = UIColor.white
             }
         } else {
-            backgroundColor = UIColor.grayColor()
+            backgroundColor = UIColor.gray
         }
-        connectionView.north.hidden = connection.north == nil
-        connectionView.east.hidden = connection.east == nil
-        connectionView.south.hidden = connection.south == nil
-        connectionView.west.hidden = connection.west == nil
+        connectionView.north.isHidden = connection.north == nil
+        connectionView.east.isHidden = connection.east == nil
+        connectionView.south.isHidden = connection.south == nil
+        connectionView.west.isHidden = connection.west == nil
     }
-    
-    
-    
+
 }

@@ -9,10 +9,10 @@
 import Foundation
 
 
-func bench(description: String = "", block: () -> Void) -> NSTimeInterval {
-    let startTime = NSDate()
+func bench(_ description: String = "", block: () -> Void) -> TimeInterval {
+    let startTime = Date()
     block()
-    let interval = NSDate().timeIntervalSinceDate(startTime)
+    let interval = Date().timeIntervalSince(startTime)
     print("\(description) is executed in \(interval * 1000) miliseconds")
     return interval
 }

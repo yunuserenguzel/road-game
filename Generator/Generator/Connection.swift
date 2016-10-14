@@ -25,26 +25,26 @@ struct Connection {
     
     func cell(atDirection direction: Direction) -> Cell? {
         switch direction {
-        case .North:
+        case .north:
             return north
-        case .South:
+        case .south:
             return south
-        case .West:
+        case .west:
             return west
-        case .East:
+        case .east:
             return east
         }
     }
     
-    mutating func set(cell cell: Cell?, atDirection direction: Direction) {
+    mutating func set(cell: Cell?, atDirection direction: Direction) {
         switch direction {
-        case .North:
+        case .north:
             north = cell
-        case .South:
+        case .south:
             south = cell
-        case .West:
+        case .west:
             west = cell
-        case .East:
+        case .east:
             east = cell
         }
         
@@ -52,21 +52,21 @@ struct Connection {
     
     func direction(ofCell cell: Cell) -> Direction? {
         if north == cell {
-            return .North
+            return .north
         }
         if south == cell {
-            return .South
+            return .south
         }
         if west == cell {
-            return .West
+            return .west
         }
         if east == cell {
-            return .East
+            return .east
         }
         return nil
     }
     
-    private func isEqual(connectedCell: Cell?, cell: Cell) -> Bool {
+    fileprivate func isEqual(_ connectedCell: Cell?, cell: Cell) -> Bool {
         guard let connectedCell = connectedCell else { return false }
         return connectedCell == cell
     }

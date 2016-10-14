@@ -234,9 +234,11 @@
 					AEAB52C71B90E2E70088F2CE = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = N342JH6SV7;
+						LastSwiftMigration = 0800;
 					};
 					AEAB52DF1B90E2E70088F2CE = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = AEAB52C71B90E2E70088F2CE;
 					};
 				};
@@ -424,6 +426,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeg.road;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "274abcbd-f1f7-4037-bcb2-7692a52c6ffe";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -439,6 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeg.road;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "274abcbd-f1f7-4037-bcb2-7692a52c6ffe";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -454,6 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yeg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Road.app/Road";
 			};
 			name = Debug;
@@ -466,6 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yeg.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Road.app/Road";
 			};
 			name = Release;

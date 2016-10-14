@@ -10,9 +10,9 @@ import UIKit
 
 class MapTableViewCell: UITableViewCell {
     
-    private let mapOverview = UIImageView()
-    private let mapDescriptionLabel = UILabel()
-    private let mapDifficultyLabel = UILabel()
+    fileprivate let mapOverview = UIImageView()
+    fileprivate let mapDescriptionLabel = UILabel()
+    fileprivate let mapDifficultyLabel = UILabel()
     var map:Map! {
         didSet {
             configureViews()
@@ -30,7 +30,7 @@ class MapTableViewCell: UITableViewCell {
     }
     
     func initViews() {
-        mapOverview.contentMode = UIViewContentMode.ScaleAspectFill
+        mapOverview.contentMode = UIViewContentMode.scaleAspectFill
         mapOverview.clipsToBounds = true
         mapOverview.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(mapOverview)
@@ -52,27 +52,27 @@ class MapTableViewCell: UITableViewCell {
         ]
         
         contentView.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:|-[overview(overviewEdge)]-[desc]-|", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "H:|-[overview(overviewEdge)]-[desc]-|", options: [], metrics: metrics, views: views))
         contentView.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:[overview]-[difficulty]-|", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "H:[overview]-[difficulty]-|", options: [], metrics: metrics, views: views))
         contentView.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:|-[overview(overviewEdge)]", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "V:|-[overview(overviewEdge)]", options: [], metrics: metrics, views: views))
         contentView.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:|-[desc(44)][difficulty(22)]-|", options: [], metrics: metrics, views: views))
+            .constraints(withVisualFormat: "V:|-[desc(44)][difficulty(22)]-|", options: [], metrics: metrics, views: views))
     }
     
     func configureViews() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             
                 var cellArea: GridView!
                 bench("GridView") {
                     cellArea = GridView(map: self.map)
                 }
-                cellArea.frame = CGRectMake(0, 0, 164, 164)
+                cellArea.frame = CGRect(x: 0, y: 0, width: 164, height: 164)
                 cellArea.setNeedsLayout()
                 cellArea.layoutIfNeeded()
-            dispatch_async(dispatch_get_main_queue()) {
-                cellArea.opaque = true
+            DispatchQueue.main.async {
+                cellArea.isOpaque = true
                 let snapshot = cellArea.snapShot()
                 self.mapOverview.image = snapshot
             }

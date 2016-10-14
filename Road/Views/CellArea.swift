@@ -14,8 +14,8 @@ protocol CellAreaDelegate {
 
 class GridView: UIView {
     
-    private(set) var map:Map!
-    private var lastHitCell:CellView!
+    fileprivate(set) var map:Map!
+    fileprivate var lastHitCell:CellView!
     
     var cells = [CellView]()
     
@@ -38,18 +38,18 @@ class GridView: UIView {
     }
     
     func initViews() {
-        backgroundColor = UIColor.lightGrayColor()
+        backgroundColor = UIColor.lightGray
         var cellViews = Dictionary<String,UIView>()
         var horizontalFormatStrings = [String]()
         var verticalFormatStrings = [String]()
-        for(var y=0; y<map.size.rows; y++) {
+        for y in (0..<map.size.rows) {
             horizontalFormatStrings.append("")
         }
-        for(var x=0; x<map.size.cols; x++) {
+        for x in (0..<map.size.cols) {
             verticalFormatStrings.append("")
         }
-        for(var y=0; y < map.size.rows; y++) {
-            for(var x=0; x < map.size.cols; x++) {
+        for y in (0..<map.size.rows) {
+            for x in (0..<map.size.cols) {
                 let cell = CellView()
                 cell.point = Map.Point(x: x, y: y)
                 if map.hasBlock(cell.point) {
@@ -67,17 +67,17 @@ class GridView: UIView {
                 verticalFormatStrings[x] += String(format: "-1-[%@(Cell_x%d_y0)]",cellString,y)
             }
         }
-        for(var y=0; y<map.size.rows; y++) {
+        for y in 0..<map.size.rows {
             let string = String(format: "V:|%@-1-|", verticalFormatStrings[y])
             //            println(string)
             addConstraints(NSLayoutConstraint
-                .constraintsWithVisualFormat(string, options: [], metrics: nil, views: cellViews))
+                .constraints(withVisualFormat: string, options: [], metrics: nil, views: cellViews))
         }
-        for(var x=0; x<map.size.cols; x++) {
+        for x in 0..<map.size.cols {
             let string = String(format: "H:|%@-1-|", horizontalFormatStrings[x])
             //            println(string)
             addConstraints(NSLayoutConstraint
-                .constraintsWithVisualFormat(string, options: [], metrics: nil, views: cellViews))
+                .constraints(withVisualFormat: string, options: [], metrics: nil, views: cellViews))
         }
     }
     
@@ -118,16 +118,16 @@ class GridView: UIView {
         }
     }
     
-    func hitCell(touch:UITouch, event:UIEvent) -> CellView? {
+    func hitCell(_ touch:UITouch, event:UIEvent) -> CellView? {
         for cell in cells {
-            if cell.pointInside(touch.locationInView(cell), withEvent: event) {
+            if cell.point(inside: touch.location(in: cell), with: event) {
                 return cell
             }
         }
         return nil
     }
     
-    func hightlightCell(currentCell:CellView?) {
+    func hightlightCell(_ currentCell:CellView?) {
         for cell in cells {
             if cell == currentCell {
                 cell.state = CellState.hightlighted
@@ -137,7 +137,7 @@ class GridView: UIView {
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         if let cell = hitCell(touch, event: event!) {
             if cell.cellType == CellType.active {
@@ -149,7 +149,7 @@ class GridView: UIView {
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         if let cell = hitCell(touch, event: event!) {
             if cell.cellType == CellType.active {
@@ -165,24 +165,24 @@ class GridView: UIView {
         }
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         hightlightCell(nil)
         lastHitCell = nil
         checkGame()
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         hightlightCell(nil)
         lastHitCell = nil
         checkGame()
     }
     
     func snapShot() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0);
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
     
 }

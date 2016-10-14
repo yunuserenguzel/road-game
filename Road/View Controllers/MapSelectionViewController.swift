@@ -10,7 +10,7 @@ import UIKit
 
 class MapSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.Plain)
+    let tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
     let playRandomMapButton = UIButton()
     
     var maps = [Map]() {
@@ -74,7 +74,7 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerClass(MapTableViewCell.classForCoder(), forCellReuseIdentifier: mapTableCellIdentifier)
+        tableView.register(MapTableViewCell.classForCoder(), forCellReuseIdentifier: mapTableCellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,11 +83,11 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
         view.addSubview(tableView)
         
         playRandomMapButton.translatesAutoresizingMaskIntoConstraints = false
-        playRandomMapButton.setTitle("Play Random Map", forState: .Normal)
-        playRandomMapButton.backgroundColor = UIColor.grayColor()
-        playRandomMapButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        playRandomMapButton.setTitleColor(UIColor.darkGrayColor(), forState: .Highlighted)
-        playRandomMapButton.addTarget(self, action: "playRandomMap", forControlEvents: .TouchUpInside)
+        playRandomMapButton.setTitle("Play Random Map", for: UIControlState())
+        playRandomMapButton.backgroundColor = UIColor.gray
+        playRandomMapButton.setTitleColor(UIColor.white, for: UIControlState())
+        playRandomMapButton.setTitleColor(UIColor.darkGray, for: .highlighted)
+        playRandomMapButton.addTarget(self, action: #selector(MapSelectionViewController.playRandomMap), for: .touchUpInside)
         view.addSubview(playRandomMapButton)
         
         maps = Map.mapsFrom(groupName: "MapSize_8x8_1474150464")!
@@ -98,45 +98,44 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
         ]
         
         view.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:|[table]|", options: [], metrics: nil, views: views))
+            .constraints(withVisualFormat: "H:|[table]|", options: [], metrics: nil, views: views))
         view.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:|[table]|", options: [], metrics: nil, views: views))
+            .constraints(withVisualFormat: "V:|[table]|", options: [], metrics: nil, views: views))
         
         view.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("H:|[random]|", options: [], metrics: nil, views: views))
+            .constraints(withVisualFormat: "H:|[random]|", options: [], metrics: nil, views: views))
         view.addConstraints(NSLayoutConstraint
-            .constraintsWithVisualFormat("V:[random(44)]|", options: [], metrics: nil, views: views))
+            .constraints(withVisualFormat: "V:[random(44)]|", options: [], metrics: nil, views: views))
         
     }
     
     func playRandomMap() {
-        let randomMapIndex = random() % maps.count
+        let randomMapIndex = Int(arc4random() % UInt32(maps.count))
         playMapAtIndex(randomMapIndex)
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(mapTableCellIdentifier, forIndexPath: indexPath) as! MapTableViewCell
-        cell.map = maps[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: mapTableCellIdentifier, for: indexPath) as! MapTableViewCell
+        cell.map = maps[(indexPath as NSIndexPath).row]
         return cell
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return maps.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        playMapAtIndex(indexPath.row)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        playMapAtIndex((indexPath as NSIndexPath).row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func playMapAtIndex(index: Int) {
+    func playMapAtIndex(_ index: Int) {
         let gameViewController =  GameViewController()
         self.navigationController?.pushViewController(gameViewController, animated: true)
         gameViewController.map = maps[index]
     }
-    
     
 }
