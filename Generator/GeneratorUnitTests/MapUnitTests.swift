@@ -19,7 +19,8 @@ class MapUnitTests: XCTestCase {
     
     func testMapMustHaveNumberOfCellsEqualToSquareOfSize() {
         let map = Map(size: 10)
-        XCTAssertEqual(map.cells.count, map.size * map.size)
+        let totalNumberOfCells = map.cells.reduce(0) { $0 + $1.count }
+        XCTAssertEqual(totalNumberOfCells, map.size * map.size)
     }
     
     
