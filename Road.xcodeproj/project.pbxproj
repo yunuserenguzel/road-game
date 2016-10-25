@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		361021FA0265E931E4662955 /* libPods-RoadTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */; };
 		AE84AB191BB990090038B9DF /* MapLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84AB181BB990090038B9DF /* MapLoader.swift */; };
 		AEAB52CE1B90E2E70088F2CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52CD1B90E2E70088F2CE /* AppDelegate.swift */; };
 		AEAB52D11B90E2E70088F2CE /* Road.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52CF1B90E2E70088F2CE /* Road.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 		AEDD77731CB1253A001AD7F2 /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = AEDD77721CB1253A001AD7F2 /* Maps */; };
 		AEF4DE821B983AAF00015D96 /* MapSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4DE811B983AAF00015D96 /* MapSelectionViewController.swift */; };
 		AEF4DE841B983C3100015D96 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4DE831B983C3100015D96 /* MapTableViewCell.swift */; };
+		F90C16BC913CC5F6DB579088 /* libPods-Road.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9785C7EE3780F298A49AC9E3 /* libPods-Road.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16085EFD383458D3065DF81E /* Pods-RoadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECB0C98EB78F1F6C23E2974 /* Pods-Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Road.release.xcconfig"; path = "Pods/Target Support Files/Pods-Road/Pods-Road.release.xcconfig"; sourceTree = "<group>"; };
+		9785C7EE3780F298A49AC9E3 /* libPods-Road.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Road.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ABB81043E56572ADACA0C41 /* Pods-RoadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE84AB181BB990090038B9DF /* MapLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLoader.swift; sourceTree = "<group>"; };
 		AEAB52C81B90E2E70088F2CE /* Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Road.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAB52CC1B90E2E70088F2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 		AEDD77721CB1253A001AD7F2 /* Maps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Maps; sourceTree = "<group>"; };
 		AEF4DE811B983AAF00015D96 /* MapSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSelectionViewController.swift; sourceTree = "<group>"; };
 		AEF4DE831B983C3100015D96 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		FACE474B56D8609D5C0E1E71 /* Pods-Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Road.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Road/Pods-Road.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F90C16BC913CC5F6DB579088 /* libPods-Road.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,18 +79,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				361021FA0265E931E4662955 /* libPods-RoadTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A8DAB518E1180101074D7E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FACE474B56D8609D5C0E1E71 /* Pods-Road.debug.xcconfig */,
+				4ECB0C98EB78F1F6C23E2974 /* Pods-Road.release.xcconfig */,
+				16085EFD383458D3065DF81E /* Pods-RoadTests.debug.xcconfig */,
+				9ABB81043E56572ADACA0C41 /* Pods-RoadTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AEAB52BF1B90E2E70088F2CE = {
 			isa = PBXGroup;
 			children = (
 				AEAB52CA1B90E2E70088F2CE /* Road */,
 				AEAB52E31B90E2E70088F2CE /* RoadTests */,
 				AEAB52C91B90E2E70088F2CE /* Products */,
+				5A8DAB518E1180101074D7E4 /* Pods */,
+				C01D8E934715A29B92271B2A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +205,15 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		C01D8E934715A29B92271B2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9785C7EE3780F298A49AC9E3 /* libPods-Road.a */,
+				1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEAB52EA1B90E2E70088F2CE /* Build configuration list for PBXNativeTarget "Road" */;
 			buildPhases = (
+				45C9E3FF99E24AA985E34439 /* [CP] Check Pods Manifest.lock */,
 				AEAB52C41B90E2E70088F2CE /* Sources */,
 				AEAB52C51B90E2E70088F2CE /* Frameworks */,
 				AEAB52C61B90E2E70088F2CE /* Resources */,
+				EE246917166D4E0D6FC569AD /* [CP] Embed Pods Frameworks */,
+				3D2AD466EBF1AD262C23B62E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEAB52ED1B90E2E70088F2CE /* Build configuration list for PBXNativeTarget "RoadTests" */;
 			buildPhases = (
+				B1614F700A65B633FD30219C /* [CP] Check Pods Manifest.lock */,
 				AEAB52DC1B90E2E70088F2CE /* Sources */,
 				AEAB52DD1B90E2E70088F2CE /* Frameworks */,
 				AEAB52DE1B90E2E70088F2CE /* Resources */,
+				6B5EFE4C579D09A6341E180D /* [CP] Embed Pods Frameworks */,
+				087C5AB24C0C42CA99C0053E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,6 +320,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		087C5AB24C0C42CA99C0053E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D2AD466EBF1AD262C23B62E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Road/Pods-Road-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45C9E3FF99E24AA985E34439 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6B5EFE4C579D09A6341E180D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1614F700A65B633FD30219C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE246917166D4E0D6FC569AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Road/Pods-Road-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AEAB52C41B90E2E70088F2CE /* Sources */ = {
@@ -416,6 +547,7 @@
 		};
 		AEAB52EB1B90E2E70088F2CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FACE474B56D8609D5C0E1E71 /* Pods-Road.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -432,6 +564,7 @@
 		};
 		AEAB52EC1B90E2E70088F2CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ECB0C98EB78F1F6C23E2974 /* Pods-Road.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -448,6 +581,7 @@
 		};
 		AEAB52EE1B90E2E70088F2CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16085EFD383458D3065DF81E /* Pods-RoadTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -465,6 +599,7 @@
 		};
 		AEAB52EF1B90E2E70088F2CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABB81043E56572ADACA0C41 /* Pods-RoadTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RoadTests/Info.plist;

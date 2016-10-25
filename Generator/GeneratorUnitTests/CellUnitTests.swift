@@ -22,50 +22,50 @@ class CellUnitTests: XCTestCase {
     
     func testCell() {
         let point = Point(x: 0, y: 0)
-        let cellType: CellType = .Active
+        let cellType: CellType = .active
         let cell = Cell(point: point, cellType: cellType)
         XCTAssertNotNil(cell)
     }
     
 //    cell.location(ofCell:)
     func testCellLocationVerticalNeighbor() {
-        let cell1 = Cell(point: Point(x: 0, y: 0), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 0, y: 1), cellType: .Active)
-        XCTAssertEqual(cell1.location(ofCell: cell2), .South)
-        XCTAssertEqual(cell2.location(ofCell: cell1), .North)
+        let cell1 = Cell(point: Point(x: 0, y: 0), cellType: .active)
+        let cell2 = Cell(point: Point(x: 0, y: 1), cellType: .active)
+        XCTAssertEqual(cell1.location(ofCell: cell2), .south)
+        XCTAssertEqual(cell2.location(ofCell: cell1), .north)
     }
     
     func testCellLocationHorizontalNeighbor() {
-        let cell1 = Cell(point: Point(x: 0, y: 0), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 1, y: 0), cellType: .Active)
-        XCTAssertEqual(cell1.location(ofCell: cell2), .East)
-        XCTAssertEqual(cell2.location(ofCell: cell1), .West)
+        let cell1 = Cell(point: Point(x: 0, y: 0), cellType: .active)
+        let cell2 = Cell(point: Point(x: 1, y: 0), cellType: .active)
+        XCTAssertEqual(cell1.location(ofCell: cell2), .east)
+        XCTAssertEqual(cell2.location(ofCell: cell1), .west)
     }
     
     func testCellLocationCross() {
-        let cell1 = Cell(point: Point(x: 0, y: 1), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 1, y: 0), cellType: .Active)
+        let cell1 = Cell(point: Point(x: 0, y: 1), cellType: .active)
+        let cell2 = Cell(point: Point(x: 1, y: 0), cellType: .active)
         XCTAssertEqual(cell1.location(ofCell: cell2), nil)
         XCTAssertEqual(cell2.location(ofCell: cell1), nil)
     }
     
     func testCellLocationCrossReverse() {
-        let cell1 = Cell(point: Point(x: 1, y: 0), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 0, y: 1), cellType: .Active)
+        let cell1 = Cell(point: Point(x: 1, y: 0), cellType: .active)
+        let cell2 = Cell(point: Point(x: 0, y: 1), cellType: .active)
         XCTAssertEqual(cell1.location(ofCell: cell2), nil)
         XCTAssertEqual(cell2.location(ofCell: cell1), nil)
     }
     
     func testCellLocationHorizontalDistant() {
-        let cell1 = Cell(point: Point(x: 2, y: 0), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 0, y: 0), cellType: .Active)
+        let cell1 = Cell(point: Point(x: 2, y: 0), cellType: .active)
+        let cell2 = Cell(point: Point(x: 0, y: 0), cellType: .active)
         XCTAssertEqual(cell1.location(ofCell: cell2), nil)
         XCTAssertEqual(cell2.location(ofCell: cell1), nil)
     }
     
     func testCellLocationVerticalDistant() {
-        let cell1 = Cell(point: Point(x: 1, y: 10), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 1, y: 5), cellType: .Active)
+        let cell1 = Cell(point: Point(x: 1, y: 10), cellType: .active)
+        let cell2 = Cell(point: Point(x: 1, y: 5), cellType: .active)
         XCTAssertEqual(cell1.location(ofCell: cell2), nil)
         XCTAssertEqual(cell2.location(ofCell: cell1), nil)
     }
@@ -73,8 +73,8 @@ class CellUnitTests: XCTestCase {
 //    cell.disconnect(cell:)
     
     func testCellDisconnectShouldDeleteConnection() {
-        let cell1 = Cell(point: Point(x: 1, y: 0), cellType: .Active)
-        let cell2 = Cell(point: Point(x: 1, y: 1), cellType: .Active)
+        let cell1 = Cell(point: Point(x: 1, y: 0), cellType: .active)
+        let cell2 = Cell(point: Point(x: 1, y: 1), cellType: .active)
         cell1.connection.south = cell2
         cell2.connection.north = cell1
         cell1.disconnect(fromCell: cell2)

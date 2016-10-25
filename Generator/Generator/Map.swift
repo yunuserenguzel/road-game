@@ -15,8 +15,10 @@ class Map {
     
     init(size: Int) {
         self.size = size
-        cells = (0..<size).map {_ in
-            
+        cells = (0..<size).map { x in
+            return (0..<size).map { y in
+                return Cell(point: Point(x:x, y:y), cellType: .active)
+            }
         }
     }
     
