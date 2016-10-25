@@ -8,11 +8,16 @@
 
 import Foundation
 
-class Cell: NSObject {
+class Cell: Equatable {
     
     let point: Point
     let cellType: CellType
     var connection: Connection = Connection()
+    
+    var copy: Cell {
+        let cell = Cell(point: point, cellType: cellType)
+        return cell
+    }
     
     init(point: Point, cellType: CellType) {
         self.point = point
@@ -22,11 +27,17 @@ class Cell: NSObject {
     func canConnect(toCell cell: Cell) -> Bool {
         guard connection.count < 2 else { return false }
         guard cell.connection.count < 2 else { return false }
+        guard direction(ofCell: cell) != nil else { return false }
+        guard self.cellType == .active, cell.cellType == .active else { return false }
         return true
     }
     
     func connect(toCell cell: Cell) -> Bool {
-        return false
+        guard canConnect(toCell: cell) else { return false }
+        guard let direction = direction(ofCell: cell) else { return false }
+        self.connection.set(cell: cell, atDirection: direction)
+        cell.connection.set(cell: self, atDirection: direction.opposite)
+        return true
     }
     
     func disconnect(fromCell cell: Cell) {
@@ -35,7 +46,7 @@ class Cell: NSObject {
         cell.connection.set(cell: nil, atDirection: direction.opposite)
     }
     
-    func location(ofCell cell: Cell) -> Direction? {
+    func direction(ofCell cell: Cell) -> Direction? {
         if point.y == cell.point.y {
             if point.x + 1 == cell.point.x {
                 return .east
@@ -55,4 +66,8 @@ class Cell: NSObject {
         return nil
     }
     
+}
+
+func ==(lhs: Cell, rhs: Cell) -> Bool {
+    return lhs.point == rhs.point && lhs.cellType == rhs.cellType
 }

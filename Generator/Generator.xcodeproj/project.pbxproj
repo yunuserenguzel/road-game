@@ -23,6 +23,11 @@
 		AEDFFA591D91CF8700529393 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA581D91CF8700529393 /* Map.swift */; };
 		AEDFFA5B1D91CF9500529393 /* MapGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */; };
 		AEDFFA5D1D91CFAD00529393 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5C1D91CFAD00529393 /* Point.swift */; };
+		D14408B51DBF70FA00B0EE7B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408B41DBF70FA00B0EE7B /* main.swift */; };
+		D14408C21DBF753C00B0EE7B /* MapSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C11DBF753C00B0EE7B /* MapSolver.swift */; };
+		D14408C31DBF753C00B0EE7B /* MapSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C11DBF753C00B0EE7B /* MapSolver.swift */; };
+		D14408C51DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */; };
+		D14408C61DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +55,9 @@
 		AEDFFA581D91CF8700529393 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGenerator.swift; sourceTree = "<group>"; };
 		AEDFFA5C1D91CFAD00529393 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		D14408B41DBF70FA00B0EE7B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D14408C11DBF753C00B0EE7B /* MapSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSolver.swift; sourceTree = "<group>"; };
+		D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,9 @@
 				AEDFFA581D91CF8700529393 /* Map.swift */,
 				AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */,
 				AEDFFA5C1D91CFAD00529393 /* Point.swift */,
+				D14408B41DBF70FA00B0EE7B /* main.swift */,
+				D14408C11DBF753C00B0EE7B /* MapSolver.swift */,
+				D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
@@ -215,6 +226,8 @@
 				AE5E3BD11D91F3AF005A99FD /* Point.swift in Sources */,
 				AE5E3BD01D91F3AF005A99FD /* MapGenerator.swift in Sources */,
 				AE5E3BCB1D91F3AF005A99FD /* CellType.swift in Sources */,
+				D14408C61DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */,
+				D14408C31DBF753C00B0EE7B /* MapSolver.swift in Sources */,
 				AE609EA21D92FF830013A6AC /* MapUnitTests.swift in Sources */,
 				AE5E3BCC1D91F3AF005A99FD /* Cell.swift in Sources */,
 				AE5E3BCE1D91F3AF005A99FD /* Direction.swift in Sources */,
@@ -230,11 +243,14 @@
 			files = (
 				AEDFFA591D91CF8700529393 /* Map.swift in Sources */,
 				AEDFFA5B1D91CF9500529393 /* MapGenerator.swift in Sources */,
+				D14408B51DBF70FA00B0EE7B /* main.swift in Sources */,
+				D14408C21DBF753C00B0EE7B /* MapSolver.swift in Sources */,
 				AEDFFA551D91CF5400529393 /* CellType.swift in Sources */,
 				AEDFFA5D1D91CFAD00529393 /* Point.swift in Sources */,
 				AEDFFA531D91CF3000529393 /* Cell.swift in Sources */,
 				AEDFFA571D91CF6100529393 /* Direction.swift in Sources */,
 				AE953AB21D91D78600A4DFC7 /* Connection.swift in Sources */,
+				D14408C51DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

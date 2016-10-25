@@ -16,6 +16,10 @@ enum Direction {
 
 extension Direction {
     
+    static var all: [Direction] {
+        return [.north, .south, .west, .east]
+    }
+    
     var opposite: Direction {
         switch self {
         case .north:
