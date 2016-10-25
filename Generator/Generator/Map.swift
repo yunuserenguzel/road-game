@@ -13,7 +13,8 @@ struct MapSubscriptProxy {
     var map: Map
     var mapIndex: Int
     var cells: [Cell]
-    var cellToBeSet: Cell?
+    var newCell: Cell?
+    var newCellIndex: Int?
     
     init(map: Map, mapIndex: Int, cells: [Cell]) {
         self.map = map
@@ -27,27 +28,40 @@ struct MapSubscriptProxy {
             return cells[index]
         }
         set {
-            cellToBeSet = newValue
+            newCell = newValue
+            newCellIndex = index
             map[mapIndex] = self
         }
     }
     
 }
 
-class Map {
+class Map: Equatable {
     
     subscript(index: Int) -> MapSubscriptProxy {
         get {
-            let cells: [Cell] = cells.indices.contains(index) ? cells[index] : []
-            return MapSubscriptProxy(map: self, mapIndex: index, cells: cells)
+            let forwardCells: [Cell] = cells.indices.contains(index) ? cells[index] : []
+            return MapSubscriptProxy(map: self, mapIndex: index, cells: forwardCells)
         }
         set {
-            
+            guard let newCell = newValue.newCell,
+                let newCellIndex = newValue.newCellIndex else { return }
+            cells[newValue.mapIndex][newCellIndex] = newCell
         }
     }
     
     let size: Int
-    var cells: [[Cell]] = []
+    var cells: [[Cell]]
+    var solved: Bool {
+        for row in cells {
+            for cell in row {
+                if cell.cellType == .active, cell.connection.count < 2 {
+                    return false
+                }
+            }
+        }
+        return true
+    }
     
     var numberOfCellConnections: Int {
         return cells.reduce(0) {
@@ -77,8 +91,30 @@ class Map {
     }
     
     func cell(nextToCell cell: Cell, atDirection direction: Direction) -> Cell? {
-        
-        return nil
+        switch direction {
+        case .north:
+            return self[cell.point.x][cell.point.y - 1]
+        case .south:
+            return self[cell.point.x][cell.point.y + 1]
+        case .west:
+            return self[cell.point.x - 1][cell.point.y]
+        case .east:
+            return self[cell.point.x + 1][cell.point.y]
+        }
     }
     
 }
+
+func ==(lhs: Map, rhs: Map) -> Bool {
+    guard lhs.size == rhs.size else { return false }
+    for x in 0..<lhs.size {
+        for y in 0..<lhs.size {
+            if lhs[x][y] != rhs[x][y] {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+

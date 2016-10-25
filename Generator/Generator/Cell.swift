@@ -11,7 +11,7 @@ import Foundation
 class Cell: Equatable {
     
     let point: Point
-    let cellType: CellType
+    var cellType: CellType
     var connection: Connection = Connection()
     
     var copy: Cell {
