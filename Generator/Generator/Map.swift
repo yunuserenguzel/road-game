@@ -52,16 +52,6 @@ class Map: Equatable {
     
     let size: Int
     var cells: [[Cell]]
-    var solved: Bool {
-        for row in cells {
-            for cell in row {
-                if cell.cellType == .active, cell.connection.count < 2 {
-                    return false
-                }
-            }
-        }
-        return true
-    }
     
     var numberOfCellConnections: Int {
         return cells.reduce(0) {
@@ -71,11 +61,21 @@ class Map: Equatable {
         } / 2
     }
     
-    init(size: Int) {
+    var unconnectedPoints: [Point] {
+        return cells.flatMap {
+            $0.flatMap {
+                $0.connection.count == 0 ? $0.point : nil
+            }
+        }
+    }
+    
+    init(size: Int, passiveCellPoints: [Point] = []) {
         self.size = size
         cells = (0..<size).map { x in
             return (0..<size).map { y in
-                return Cell(point: Point(x:x, y:y), cellType: .active)
+                let point = Point(x:x, y:y)
+                let type: CellType = passiveCellPoints.contains(point) ? .passive : .active
+                return Cell(point: point, cellType: type)
             }
         }
     }

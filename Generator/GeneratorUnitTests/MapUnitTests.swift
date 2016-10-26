@@ -17,6 +17,18 @@ class MapUnitTests: XCTestCase {
         XCTAssertEqual(map.size, size)
     }
     
+    func testMapMustInitWithPassiveCellPoints() {
+        let size = 5
+        let passivePoints = [Point(x: 2, y: 1), Point(x: 4, y: 3)]
+        let map = Map(size: size, passiveCellPoints: passivePoints)
+        XCTAssertEqual(map[2][1]?.cellType, .passive)
+        XCTAssertEqual(map[4][3]?.cellType, .passive)
+        XCTAssertEqual(map[0][0]?.cellType, .active)
+        XCTAssertEqual(map[4][4]?.cellType, .active)
+        XCTAssertEqual(map[2][3]?.cellType, .active)
+        XCTAssertEqual(map[1][2]?.cellType, .active)
+    }
+    
     func testMapMustHaveNumberOfCellsEqualToSquareOfSize() {
         let map = Map(size: 10)
         let totalNumberOfCells = map.cells.reduce(0) { $0 + $1.count }
@@ -64,4 +76,37 @@ class MapUnitTests: XCTestCase {
         map1[4][3]?.cellType = .passive
         XCTAssertNotEqual(map1, map2)
     }
+    
+    func testUnconnectedPoints() {
+        let map = Map(size: 4)
+        let points = [
+            Point(x: 0, y: 0),
+            Point(x: 0, y: 1),
+            Point(x: 0, y: 2),
+            Point(x: 1, y: 2),
+            Point(x: 1, y: 3),
+            Point(x: 2, y: 3),
+            Point(x: 2, y: 2),
+            Point(x: 2, y: 1),
+            Point(x: 3, y: 1),
+            Point(x: 3, y: 0),
+            Point(x: 2, y: 0),
+            Point(x: 1, y: 0)
+        ]
+        for i in points.indices {
+            let currentPoint = points[i]
+            let nextPoint = points[(i+1) % points.count]
+            let currentCell = map[currentPoint.x][currentPoint.y]!
+            let nextCell = map[nextPoint.x][nextPoint.y]!
+            let _ = currentCell.connect(toCell: nextCell)
+        }
+        let expectedPassiveCells = [
+            Point(x: 0, y: 3),
+            Point(x: 1, y: 1),
+            Point(x: 3, y: 2),
+            Point(x: 3, y: 3)
+        ]
+        XCTAssertEqual(map.unconnectedPoints, expectedPassiveCells)
+    }
+    
 }

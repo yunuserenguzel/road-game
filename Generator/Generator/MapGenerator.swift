@@ -45,8 +45,9 @@ class MapGeneratorHelper {
     
     func execute() -> Map? {
         let cell: Cell! = map.cells.shuffled().first?.shuffled().first
+        print("Starting point \(cell.point)")
         if executeAStep(cell: cell) {
-            return map.copy
+            return Map(size: map.size, passiveCellPoints: map.unconnectedPoints)
         }
         return nil
     }
@@ -55,12 +56,13 @@ class MapGeneratorHelper {
         for direction in Direction.all.shuffled() {
             guard let nextCell = self.map.cell(nextToCell: cell, atDirection: direction) else { continue }
             guard cell.connect(toCell: nextCell) else { continue }
-            if map.solved {
+            if nextCell.connection.count == 2 {
                 return true
             }
-            if nextCell.connection.count < 2, executeAStep(cell: nextCell) {
+            if executeAStep(cell: nextCell) {
                 return true
             }
+            cell.disconnect(fromCell: nextCell)
         }
         return false
     }

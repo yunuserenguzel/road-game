@@ -90,8 +90,8 @@
 			children = (
 				AE609EA11D92FF830013A6AC /* MapUnitTests.swift */,
 				AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */,
-				AE953ABC1D91EAAF00A4DFC7 /* Info.plist */,
 				AE6744CC1DBFF253009A7B59 /* MapGeneratorTests.swift */,
+				AE953ABC1D91EAAF00A4DFC7 /* Info.plist */,
 			);
 			path = GeneratorUnitTests;
 			sourceTree = "<group>";

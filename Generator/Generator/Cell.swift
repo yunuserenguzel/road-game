@@ -27,8 +27,11 @@ class Cell: Equatable {
     func canConnect(toCell cell: Cell) -> Bool {
         guard connection.count < 2 else { return false }
         guard cell.connection.count < 2 else { return false }
-        guard direction(ofCell: cell) != nil else { return false }
         guard self.cellType == .active, cell.cellType == .active else { return false }
+        guard let directionOfCell = direction(ofCell: cell),
+            connection.cell(atDirection: directionOfCell) == nil else { return false }
+        guard let directionOfSelf = cell.direction(ofCell: self),
+            cell.connection.cell(atDirection: directionOfSelf) == nil else { return false }
         return true
     }
     

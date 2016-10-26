@@ -91,6 +91,14 @@ class CellUnitTests: XCTestCase {
         XCTAssertEqual(cell2.connection.count, 1)
     }
     
+    func testCellCanConnectReturnsFalseAfterConnect() {
+        let cell1 = Cell(point: Point(x: 3, y: 2), cellType: .active)
+        let cell2 = Cell(point: Point(x: 2, y: 2), cellType: .active)
+        XCTAssert(cell1.canConnect(toCell: cell2))
+        XCTAssert(cell1.connect(toCell: cell2))
+        XCTAssertFalse(cell1.canConnect(toCell: cell2))
+    }
+    
 }
 
 
