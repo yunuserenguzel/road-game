@@ -8,20 +8,20 @@
 
 import Foundation
 
-class MapGenerator {
+public class MapGenerator {
     
     let size: Int
     let limit: Int
     
-    init(size: Int, limit: Int) {
+    public init(size: Int, limit: Int) {
         self.size = size
         self.limit = limit
     }
     
-    func generateMaps() -> [Map] {
+    public func generateMaps() -> [Map] {
         var maps: [Map] = []
         repeat {
-            if let map = generateMap(), !maps.contains(map) {
+            if let map: Map = generateMap(), !maps.contains(map) {
                 maps.append(map)
             }
         } while(maps.count < limit)
@@ -31,6 +31,15 @@ class MapGenerator {
     func generateMap() -> Map? {
         let helper = MapGeneratorHelper(map: Map(size: size))
         return helper.execute()
+    }
+    
+    public func generateMap() -> [(Int,Int)] {
+        let map: Map! = generateMap()
+        return map.cells.flatMap {
+            $0.flatMap {
+                return $0.cellType == .passive ? ($0.point.x, $0.point.y) : nil
+            }
+        }
     }
     
 }

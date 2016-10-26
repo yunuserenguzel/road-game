@@ -36,7 +36,7 @@ struct MapSubscriptProxy {
     
 }
 
-class Map: Equatable {
+public class Map: Equatable {
     
     subscript(index: Int) -> MapSubscriptProxy {
         get {
@@ -105,7 +105,7 @@ class Map: Equatable {
     
 }
 
-func ==(lhs: Map, rhs: Map) -> Bool {
+public func ==(lhs: Map, rhs: Map) -> Bool {
     guard lhs.size == rhs.size else { return false }
     for x in 0..<lhs.size {
         for y in 0..<lhs.size {
