@@ -12,10 +12,12 @@ public class MapGenerator {
     
     let size: Int
     let limit: Int
+    let passiveCellCount: Int
     
-    public init(size: Int, limit: Int) {
+    public init(size: Int, limit: Int, passiveCellCount: Int) {
         self.size = size
         self.limit = limit
+        self.passiveCellCount = passiveCellCount
     }
     
     public func generateMaps() -> [Map] {
