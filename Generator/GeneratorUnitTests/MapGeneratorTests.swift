@@ -11,13 +11,13 @@ import XCTest
 class MapGeneratorTests: XCTestCase {
     
     func testMapGeneratesMaps() {
-        let mapGenerator = MapGenerator(size: 3, limit: 2)
+        let mapGenerator = MapGenerator(size: 4, limit: 2, passiveCellCount: 2)
         let maps = mapGenerator.generateMaps()
         XCTAssertEqual(maps.count, 2)
     }
     
     func testMapGenerateUniqueMaps() {
-        let mapGenerator = MapGenerator(size: 3, limit: 2)
+        let mapGenerator = MapGenerator(size: 4, limit: 2, passiveCellCount: 2)
         let maps = mapGenerator.generateMaps()
         XCTAssertNotEqual(maps.first, maps.last)
     }

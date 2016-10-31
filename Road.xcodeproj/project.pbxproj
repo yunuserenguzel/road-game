@@ -118,7 +118,6 @@
 		AEAB52BF1B90E2E70088F2CE = {
 			isa = PBXGroup;
 			children = (
-				AE6744E31DC15B88009A7B59 /* MapGenerator.framework */,
 				AEAB52CA1B90E2E70088F2CE /* Road */,
 				AEAB52E31B90E2E70088F2CE /* RoadTests */,
 				AEAB52C91B90E2E70088F2CE /* Products */,
@@ -227,6 +226,7 @@
 		C01D8E934715A29B92271B2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6744E31DC15B88009A7B59 /* MapGenerator.framework */,
 				9785C7EE3780F298A49AC9E3 /* libPods-Road.a */,
 				1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */,
 			);

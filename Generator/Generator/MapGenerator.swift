@@ -31,7 +31,7 @@ public class MapGenerator {
     }
     
     func generateMap() -> Map? {
-        let helper = MapGeneratorHelper(map: Map(size: size))
+        let helper = MapGeneratorHelper(map: Map(size: size), passiveCellCount: passiveCellCount)
         return helper.execute()
     }
     
@@ -49,14 +49,15 @@ public class MapGenerator {
 class MapGeneratorHelper {
     
     var map: Map
+    let passiveCellCount: Int
     
-    init(map: Map) {
+    init(map: Map, passiveCellCount: Int) {
         self.map = map.copy
+        self.passiveCellCount = passiveCellCount
     }
     
     func execute() -> Map? {
         let cell: Cell! = map.cells.shuffled().first?.shuffled().first
-        print("Starting point \(cell.point)")
         if executeAStep(cell: cell) {
             return Map(size: map.size, passiveCellPoints: map.unconnectedPoints)
         }
@@ -67,11 +68,14 @@ class MapGeneratorHelper {
         for direction in Direction.all.shuffled() {
             guard let nextCell = self.map.cell(nextToCell: cell, atDirection: direction) else { continue }
             guard cell.connect(toCell: nextCell) else { continue }
-            if nextCell.connection.count == 2 {
+            if map.unconnectedPoints.count == passiveCellCount,
+                nextCell.connection.count == 2 {
                 return true
             }
-            if executeAStep(cell: nextCell) {
-                return true
+            if map.unconnectedPoints.count >= passiveCellCount  {
+                if executeAStep(cell: nextCell) {
+                    return true
+                }
             }
             cell.disconnect(fromCell: nextCell)
         }

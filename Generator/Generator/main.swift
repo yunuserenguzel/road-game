@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+let generator = MapGenerator(size: 8, limit: 1, passiveCellCount: 8)
+let map = generator.generateMaps().first
+
+if let map = map {
+    print(map)
+}

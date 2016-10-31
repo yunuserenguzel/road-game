@@ -36,7 +36,7 @@ struct MapSubscriptProxy {
     
 }
 
-public class Map: Equatable {
+public class Map: Equatable, CustomStringConvertible {
     
     subscript(index: Int) -> MapSubscriptProxy {
         get {
@@ -47,6 +47,14 @@ public class Map: Equatable {
             guard let newCell = newValue.newCell,
                 let newCellIndex = newValue.newCellIndex else { return }
             cells[newValue.mapIndex][newCellIndex] = newCell
+        }
+    }
+    
+    public var description: String {
+        return cells.reduce("") {
+            $0 + "\n" + $1.reduce("") {
+                $0 + ($1.cellType == .active ? "•" : "X")
+            }
         }
     }
     

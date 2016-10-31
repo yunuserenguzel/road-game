@@ -113,7 +113,7 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
     func playRandomMap() {
         DispatchQueue.global().async {
             let size = 8
-            let generator = MapGenerator(size: size, limit: 1)
+            let generator = MapGenerator(size: size, limit: 1, passiveCellCount: 6)
             let obstacles: [Map.Point] = generator.generateMap().map { Map.Point(x: $0.0, y: $0.1) }
             let map = Map(difficulty: "random", size: Map.Size(cols: size, rows: size), obstacles: obstacles)
             DispatchQueue.main.async {
