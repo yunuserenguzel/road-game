@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Point {
+struct Point: Equatable {
     let x: Int
     let y: Int
+}
+
+func ==(lhs: Point, rhs: Point) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y
 }

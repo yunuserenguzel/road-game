@@ -21,7 +21,7 @@ class Map: NSObject {
         var y: Int
     }
     var size: Size
-    var obstacles: Array<Point>
+    var obstacles: [Point]
     var difficulty: String //change this to enum
     
     static func mapsFrom(groupName: String) -> [Map]? {
@@ -51,7 +51,7 @@ class Map: NSObject {
         }
     }
     
-    init(difficulty:String, size:Map.Size, obstacles:Array<Map.Point>) {
+    init(difficulty:String, size:Map.Size, obstacles:[Map.Point]) {
         self.difficulty = difficulty
         self.obstacles = obstacles
         self.size = size

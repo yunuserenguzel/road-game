@@ -10,6 +10,15 @@ import Foundation
 
 struct Connection {
     
+    subscript(index: Direction) -> Cell? {
+        get {
+            return cell(atDirection: index)
+        }
+        set {
+            set(cell: newValue, atDirection: index)
+        }
+    }
+    
     var north: Cell?
     var south: Cell?
     var west: Cell?

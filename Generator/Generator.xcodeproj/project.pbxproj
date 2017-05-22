@@ -16,6 +16,16 @@
 		AE5E3BD11D91F3AF005A99FD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5C1D91CFAD00529393 /* Point.swift */; };
 		AE609EA21D92FF830013A6AC /* MapUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE609EA11D92FF830013A6AC /* MapUnitTests.swift */; };
 		AE609EA31D92FFBF0013A6AC /* CellUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */; };
+		AE6744CD1DBFF253009A7B59 /* MapGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6744CC1DBFF253009A7B59 /* MapGeneratorTests.swift */; };
+		AE6744D71DC15B35009A7B59 /* MapGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = AE6744D51DC15B35009A7B59 /* MapGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE6744DB1DC15B44009A7B59 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA541D91CF5400529393 /* CellType.swift */; };
+		AE6744DC1DC15B44009A7B59 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA521D91CF3000529393 /* Cell.swift */; };
+		AE6744DD1DC15B44009A7B59 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953AB11D91D78600A4DFC7 /* Connection.swift */; };
+		AE6744DE1DC15B44009A7B59 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA561D91CF6100529393 /* Direction.swift */; };
+		AE6744DF1DC15B44009A7B59 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA581D91CF8700529393 /* Map.swift */; };
+		AE6744E01DC15B44009A7B59 /* MapGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */; };
+		AE6744E11DC15B44009A7B59 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5C1D91CFAD00529393 /* Point.swift */; };
+		AE6744E21DC15B44009A7B59 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */; };
 		AE953AB21D91D78600A4DFC7 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE953AB11D91D78600A4DFC7 /* Connection.swift */; };
 		AEDFFA531D91CF3000529393 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA521D91CF3000529393 /* Cell.swift */; };
 		AEDFFA551D91CF5400529393 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA541D91CF5400529393 /* CellType.swift */; };
@@ -23,6 +33,9 @@
 		AEDFFA591D91CF8700529393 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA581D91CF8700529393 /* Map.swift */; };
 		AEDFFA5B1D91CF9500529393 /* MapGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */; };
 		AEDFFA5D1D91CFAD00529393 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDFFA5C1D91CFAD00529393 /* Point.swift */; };
+		D14408B51DBF70FA00B0EE7B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408B41DBF70FA00B0EE7B /* main.swift */; };
+		D14408C51DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */; };
+		D14408C61DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +53,10 @@
 /* Begin PBXFileReference section */
 		AE5E3BC31D91F39A005A99FD /* GeneratorUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeneratorUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE609EA11D92FF830013A6AC /* MapUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUnitTests.swift; sourceTree = "<group>"; };
+		AE6744CC1DBFF253009A7B59 /* MapGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeneratorTests.swift; sourceTree = "<group>"; };
+		AE6744D31DC15B35009A7B59 /* MapGenerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapGenerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6744D51DC15B35009A7B59 /* MapGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapGenerator.h; sourceTree = "<group>"; };
+		AE6744D61DC15B35009A7B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE953AB11D91D78600A4DFC7 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUnitTests.swift; sourceTree = "<group>"; };
 		AE953ABC1D91EAAF00A4DFC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,10 +67,19 @@
 		AEDFFA581D91CF8700529393 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGenerator.swift; sourceTree = "<group>"; };
 		AEDFFA5C1D91CFAD00529393 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		D14408B41DBF70FA00B0EE7B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AE5E3BC01D91F39A005A99FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6744CF1DC15B35009A7B59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -70,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE6744D41DC15B35009A7B59 /* MapGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				AE6744D51DC15B35009A7B59 /* MapGenerator.h */,
+				AE6744D61DC15B35009A7B59 /* Info.plist */,
+			);
+			path = MapGenerator;
+			sourceTree = "<group>";
+		};
 		AE953AB31D91EA9600A4DFC7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +118,7 @@
 			children = (
 				AE609EA11D92FF830013A6AC /* MapUnitTests.swift */,
 				AE953ABA1D91EAAF00A4DFC7 /* CellUnitTests.swift */,
+				AE6744CC1DBFF253009A7B59 /* MapGeneratorTests.swift */,
 				AE953ABC1D91EAAF00A4DFC7 /* Info.plist */,
 			);
 			path = GeneratorUnitTests;
@@ -93,6 +129,7 @@
 			children = (
 				AEDFFA4A1D91CE0300529393 /* Generator */,
 				AE953AB91D91EAAF00A4DFC7 /* GeneratorUnitTests */,
+				AE6744D41DC15B35009A7B59 /* MapGenerator */,
 				AEDFFA491D91CE0300529393 /* Products */,
 				AE953AB31D91EA9600A4DFC7 /* Tests */,
 			);
@@ -103,6 +140,7 @@
 			children = (
 				AEDFFA481D91CE0300529393 /* Generator */,
 				AE5E3BC31D91F39A005A99FD /* GeneratorUnitTests.xctest */,
+				AE6744D31DC15B35009A7B59 /* MapGenerator.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,11 +155,24 @@
 				AEDFFA581D91CF8700529393 /* Map.swift */,
 				AEDFFA5A1D91CF9500529393 /* MapGenerator.swift */,
 				AEDFFA5C1D91CFAD00529393 /* Point.swift */,
+				D14408B41DBF70FA00B0EE7B /* main.swift */,
+				D14408C41DBF7A3200B0EE7B /* Collection+Extensions.swift */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AE6744D01DC15B35009A7B59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6744D71DC15B35009A7B59 /* MapGenerator.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		AE5E3BC21D91F39A005A99FD /* GeneratorUnitTests */ = {
@@ -140,6 +191,24 @@
 			productName = GeneratorUnitTests;
 			productReference = AE5E3BC31D91F39A005A99FD /* GeneratorUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AE6744D21DC15B35009A7B59 /* MapGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE6744D81DC15B35009A7B59 /* Build configuration list for PBXNativeTarget "MapGenerator" */;
+			buildPhases = (
+				AE6744CE1DC15B35009A7B59 /* Sources */,
+				AE6744CF1DC15B35009A7B59 /* Frameworks */,
+				AE6744D01DC15B35009A7B59 /* Headers */,
+				AE6744D11DC15B35009A7B59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MapGenerator;
+			productName = MapGenerator;
+			productReference = AE6744D31DC15B35009A7B59 /* MapGenerator.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		AEDFFA471D91CE0300529393 /* Generator */ = {
 			isa = PBXNativeTarget;
@@ -165,12 +234,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = yeg;
 				TargetAttributes = {
 					AE5E3BC21D91F39A005A99FD = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0800;
+					};
+					AE6744D21DC15B35009A7B59 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
 					};
 					AEDFFA471D91CE0300529393 = {
 						CreatedOnToolsVersion = 7.3;
@@ -193,12 +266,20 @@
 			targets = (
 				AEDFFA471D91CE0300529393 /* Generator */,
 				AE5E3BC21D91F39A005A99FD /* GeneratorUnitTests */,
+				AE6744D21DC15B35009A7B59 /* MapGenerator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AE5E3BC11D91F39A005A99FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE6744D11DC15B35009A7B59 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,8 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5E3BD11D91F3AF005A99FD /* Point.swift in Sources */,
+				AE6744CD1DBFF253009A7B59 /* MapGeneratorTests.swift in Sources */,
 				AE5E3BD01D91F3AF005A99FD /* MapGenerator.swift in Sources */,
 				AE5E3BCB1D91F3AF005A99FD /* CellType.swift in Sources */,
+				D14408C61DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */,
 				AE609EA21D92FF830013A6AC /* MapUnitTests.swift in Sources */,
 				AE5E3BCC1D91F3AF005A99FD /* Cell.swift in Sources */,
 				AE5E3BCE1D91F3AF005A99FD /* Direction.swift in Sources */,
@@ -224,17 +307,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE6744CE1DC15B35009A7B59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6744DF1DC15B44009A7B59 /* Map.swift in Sources */,
+				AE6744DB1DC15B44009A7B59 /* CellType.swift in Sources */,
+				AE6744E01DC15B44009A7B59 /* MapGenerator.swift in Sources */,
+				AE6744DD1DC15B44009A7B59 /* Connection.swift in Sources */,
+				AE6744E11DC15B44009A7B59 /* Point.swift in Sources */,
+				AE6744E21DC15B44009A7B59 /* Collection+Extensions.swift in Sources */,
+				AE6744DC1DC15B44009A7B59 /* Cell.swift in Sources */,
+				AE6744DE1DC15B44009A7B59 /* Direction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEDFFA441D91CE0300529393 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AEDFFA591D91CF8700529393 /* Map.swift in Sources */,
 				AEDFFA5B1D91CF9500529393 /* MapGenerator.swift in Sources */,
+				D14408B51DBF70FA00B0EE7B /* main.swift in Sources */,
 				AEDFFA551D91CF5400529393 /* CellType.swift in Sources */,
 				AEDFFA5D1D91CFAD00529393 /* Point.swift in Sources */,
 				AEDFFA531D91CF3000529393 /* Cell.swift in Sources */,
 				AEDFFA571D91CF6100529393 /* Direction.swift in Sources */,
 				AE953AB21D91D78600A4DFC7 /* Connection.swift in Sources */,
+				D14408C51DBF7A3200B0EE7B /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +365,62 @@
 			};
 			name = Release;
 		};
+		AE6744D91DC15B35009A7B59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MapGenerator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yeg.MapGenerator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AE6744DA1DC15B35009A7B59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MapGenerator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yeg.MapGenerator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AEDFFA4D1D91CE0300529393 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -279,8 +435,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -324,8 +482,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -344,6 +504,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -376,6 +537,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AE6744D81DC15B35009A7B59 /* Build configuration list for PBXNativeTarget "MapGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE6744D91DC15B35009A7B59 /* Debug */,
+				AE6744DA1DC15B35009A7B59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		AEDFFA431D91CE0300529393 /* Build configuration list for PBXProject "Generator" */ = {
 			isa = XCConfigurationList;

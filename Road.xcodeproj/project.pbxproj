@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		361021FA0265E931E4662955 /* libPods-RoadTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */; };
+		AE6744E41DC15B88009A7B59 /* MapGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6744E31DC15B88009A7B59 /* MapGenerator.framework */; };
+		AE6744E51DC15B88009A7B59 /* MapGenerator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE6744E31DC15B88009A7B59 /* MapGenerator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE84AB191BB990090038B9DF /* MapLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84AB181BB990090038B9DF /* MapLoader.swift */; };
 		AEAB52CE1B90E2E70088F2CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52CD1B90E2E70088F2CE /* AppDelegate.swift */; };
 		AEAB52D11B90E2E70088F2CE /* Road.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEAB52CF1B90E2E70088F2CE /* Road.xcdatamodeld */; };
@@ -37,12 +39,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AE6744E61DC15B89009A7B59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE6744E51DC15B88009A7B59 /* MapGenerator.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		16085EFD383458D3065DF81E /* Pods-RoadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECB0C98EB78F1F6C23E2974 /* Pods-Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Road.release.xcconfig"; path = "Pods/Target Support Files/Pods-Road/Pods-Road.release.xcconfig"; sourceTree = "<group>"; };
 		9785C7EE3780F298A49AC9E3 /* libPods-Road.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Road.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABB81043E56572ADACA0C41 /* Pods-RoadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE6744E31DC15B88009A7B59 /* MapGenerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapGenerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE84AB181BB990090038B9DF /* MapLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLoader.swift; sourceTree = "<group>"; };
 		AEAB52C81B90E2E70088F2CE /* Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Road.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAB52CC1B90E2E70088F2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F90C16BC913CC5F6DB579088 /* libPods-Road.a in Frameworks */,
+				AE6744E41DC15B88009A7B59 /* MapGenerator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +226,7 @@
 		C01D8E934715A29B92271B2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6744E31DC15B88009A7B59 /* MapGenerator.framework */,
 				9785C7EE3780F298A49AC9E3 /* libPods-Road.a */,
 				1A227AAE47D44CF906A047D7 /* libPods-RoadTests.a */,
 			);
@@ -221,12 +240,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEAB52EA1B90E2E70088F2CE /* Build configuration list for PBXNativeTarget "Road" */;
 			buildPhases = (
+				52FCA266DF2009583811B668 /* Check Pods Manifest.lock */,
 				45C9E3FF99E24AA985E34439 /* [CP] Check Pods Manifest.lock */,
 				AEAB52C41B90E2E70088F2CE /* Sources */,
 				AEAB52C51B90E2E70088F2CE /* Frameworks */,
 				AEAB52C61B90E2E70088F2CE /* Resources */,
 				EE246917166D4E0D6FC569AD /* [CP] Embed Pods Frameworks */,
 				3D2AD466EBF1AD262C23B62E /* [CP] Copy Pods Resources */,
+				AE6744E61DC15B89009A7B59 /* Embed Frameworks */,
+				BE6B6025F71DEBA7DDD657EA /* Embed Pods Frameworks */,
+				60B871065CB589512B1A4C96 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,12 +264,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEAB52ED1B90E2E70088F2CE /* Build configuration list for PBXNativeTarget "RoadTests" */;
 			buildPhases = (
+				4A26CA6D315EFC31BF1E752F /* Check Pods Manifest.lock */,
 				B1614F700A65B633FD30219C /* [CP] Check Pods Manifest.lock */,
 				AEAB52DC1B90E2E70088F2CE /* Sources */,
 				AEAB52DD1B90E2E70088F2CE /* Frameworks */,
 				AEAB52DE1B90E2E70088F2CE /* Resources */,
 				6B5EFE4C579D09A6341E180D /* [CP] Embed Pods Frameworks */,
 				087C5AB24C0C42CA99C0053E /* [CP] Copy Pods Resources */,
+				411EA94F757A6C383F470873 /* Embed Pods Frameworks */,
+				F24C8A101CB75258C51534C9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,6 +378,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Road/Pods-Road-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		411EA94F757A6C383F470873 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		45C9E3FF99E24AA985E34439 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,6 +406,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4A26CA6D315EFC31BF1E752F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		52FCA266DF2009583811B668 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		60B871065CB589512B1A4C96 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Road/Pods-Road-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B5EFE4C579D09A6341E180D /* [CP] Embed Pods Frameworks */ = {
@@ -397,6 +483,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		BE6B6025F71DEBA7DDD657EA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Road/Pods-Road-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EE246917166D4E0D6FC569AD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,6 +511,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Road/Pods-Road-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F24C8A101CB75258C51534C9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadTests/Pods-RoadTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -553,7 +669,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Road/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeg.road;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,7 +686,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Road/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeg.road;
 				PRODUCT_NAME = "$(TARGET_NAME)";

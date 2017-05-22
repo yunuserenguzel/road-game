@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapGenerator
 
 class MapSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -110,10 +111,18 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func playRandomMap() {
-        let randomMapIndex = Int(arc4random() % UInt32(maps.count))
-        playMapAtIndex(randomMapIndex)
+        DispatchQueue.global().async {
+            let size = 8
+            let generator = MapGenerator(size: size, limit: 1, passiveCellCount: 6)
+            let obstacles: [Map.Point] = generator.generateMap().map { Map.Point(x: $0.0, y: $0.1) }
+            let map = Map(difficulty: "random", size: Map.Size(cols: size, rows: size), obstacles: obstacles)
+            DispatchQueue.main.async {
+                if self.navigationController?.visibleViewController == self {
+                    self.play(map: map)
+                }
+            }
+        }
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: mapTableCellIdentifier, for: indexPath) as! MapTableViewCell
@@ -133,9 +142,13 @@ class MapSelectionViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func playMapAtIndex(_ index: Int) {
+        play(map: maps[index])
+    }
+    
+    func play(map: Map) {
         let gameViewController =  GameViewController()
         self.navigationController?.pushViewController(gameViewController, animated: true)
-        gameViewController.map = maps[index]
+        gameViewController.map = map
     }
     
 }
